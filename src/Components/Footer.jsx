@@ -17,8 +17,8 @@ const Footer = () => {
 						Save time, save money!
 					</Text>
 					<Text fontSize="1xl" textAlign="center" mb="10px" color="gray.300">
-						Sign up and we'll send the best deals to you
-					</Text>
+  Sign up and we ll send the best deals to you
+</Text>
 					<Grid
 						templateColumns={{ sm: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
 						m="auto"

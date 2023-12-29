@@ -15,7 +15,7 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from "@chakra-ui/react";
-import Link from "next/link";
+import Link from "next/link"; // Add the import for Link
 import { useState } from "react";
 
 import { BsSearch } from "react-icons/bs";
@@ -33,7 +33,9 @@ const SearchForm = () => {
       <FormControl>
         <FormLabel fontSize="13px">Destination/property name:</FormLabel>
         <InputGroup bg="white" borderRadius="6px" mb="10px">
-          <InputLeftElement pointerEvents="none" children={<BsSearch />} />
+        <InputLeftElement pointerEvents="none">
+  <BsSearch />
+</InputLeftElement>
           <Input onChange={({target}) => setInputData(target.value)} type="text" placeholder="Where are you going" />
         </InputGroup>
         <FormLabel fontSize="13px">Check-in - Check-out</FormLabel>
@@ -48,13 +50,14 @@ const SearchForm = () => {
 
         <VStack alignItems="flex-start" mb="10px">
           <Checkbox>Entire homes & apartments</Checkbox>
-          <Checkbox>I'm travelling for work</Checkbox>
+          <Checkbox>Im travelling for work</Checkbox>
         </VStack>
 
-        <Link style={{textDecoration: "none"}} href={/property?city=${inputData}}>
-        <Button w="100%" h="50px" type="submit" colorScheme="blue">
-          Search
-        </Button>
+        {/* Fix the href attribute with template string */}
+        <Link href={`/property?city=${inputData}`} passHref>
+          <Button w="100%" h="50px" type="submit" colorScheme="blue">
+            Search
+          </Button>
         </Link>
       </FormControl>
     </Box>

@@ -1,7 +1,7 @@
 // components/WeddingHall.js
 
 import React from 'react';
-import Navbar from "../components/navbarSection/navbar";
+import Navbar from "../../../Components/navbarSection/navbar";
 import {Spacer} from "@nextui-org/spacer";
 import { Flex } from '@chakra-ui/react';
 
@@ -10,9 +10,9 @@ const WeddingHall = ({ hallDetails = {} }) => {
   const { name = 'Unknown Hall', capacity = 'N/A', location = 'N/A', imageSrc = '' } = hallDetails;
   const renderText = (textArray) => {
     return textArray.map((text, index) => (
-      <div key={index} className={text-wrapper-${index + 1}}>
-        {text}
-      </div>
+      <div key={index} className={`text-wrapper-${index + 1}`}>
+      {text}
+    </div>
        ));
       };
       const venueData = {
@@ -94,10 +94,10 @@ const WeddingHall = ({ hallDetails = {} }) => {
       <img className="description-svg" alt="Description svg" src="https://static.thenounproject.com/png/2303077-200.png" />
       <div className="heading"style={{ marginRight: '8px' , fontSize:'16px'}}>DESCRIPTION</div>
       {venueData.description.map((paragraph, index) => (
-        <p key={index} className={text-wrapper-${index + 9}}>
-          {paragraph}
-        </p>
-      ))}
+  <p key={index} className={`text-wrapper-${index + 9}`}>
+    {paragraph}
+  </p>
+))}
       <img className="additional-info-svg" alt="Additional info svg" src="https://t4.ftcdn.net/jpg/03/22/63/91/360_F_322639135_8stIcJcX4X84m56tV5wNnDmhFd6ZIYRG.jpg" />
       <div className="heading-additional">ADDITIONAL INFORMATION</div>
       <p className="text-wrapper-11">{venueData.additionalInformation}</p>

@@ -22,11 +22,11 @@ import { MdOutlineRestaurant } from "react-icons/md";
 import { MdLocalAirport } from "react-icons/md";
 import { useRouter } from "next/router";
 import { FaSwimmingPool } from "react-icons/fa";
-import Navbar from "../../../components/navbarSection/navbar";
+import Navbar from "../../../Components/navbarSection/navbar";
 import { useContext, useEffect, useState } from "react";
 import { GuestContext } from "../../../context/GuestContext";
 import Link from "next/link";
-import LoadingScreen from "../../../components/pre_loader/loadingScreen";
+import LoadingScreen from "../../../Components/pre_loader/loadingScreen";
 import { PropertyModel } from "../../../models/property.model";
 import { connect } from "../../../db.connect";
 export default function Info({ data }) {
@@ -286,7 +286,7 @@ export default function Info({ data }) {
 									<HStack>
 										<IoCheckmarkDone color="green" fontSize={"22px"} />
 										<Text>
-											No payment needed today. You'll pay when you stay.
+											No payment needed today. Youll pay when you stay.
 										</Text>
 									</HStack>
 								</VStack>
