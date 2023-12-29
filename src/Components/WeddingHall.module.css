@@ -1,0 +1,552 @@
+.div-browse {
+    background-color: #122642;
+    height: 889px;
+    width: 1920px;
+}
+
+.div-browse .div {
+    height: 737px;
+    position: relative;
+    top: 76px;
+}
+
+.div-browse .div-2 {
+    height: 60px;
+    left: 32px;
+    position: absolute;
+    top: 32px;
+    width: 1856px;
+}
+
+.div-browse .heading {
+    height: 60px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 739px;
+}
+
+.div-browse .text-wrapper {
+    color: #ffffff;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 39.7px;
+    font-weight: 500;
+    height: 40px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 60px;
+    position: absolute;
+    top: 9px;
+    white-space: nowrap;
+    width: 739px;
+}
+
+.div-browse .input {
+    height: 37px;
+    left: 1696px;
+    position: absolute;
+    top: 23px;
+    width: 160px;
+}
+
+.div-browse .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 23px;
+    font-weight: 400;
+    height: 32px;
+    left: 6px;
+    letter-spacing: 0;
+    line-height: 34.5px;
+    position: absolute;
+    text-align: center;
+    top: 1px;
+    white-space: nowrap;
+    width: 149px;
+}
+
+.div-browse .div-3 {
+    background-color: #122642;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #d0d0d0;
+    height: 52px;
+    left: 32px;
+    position: absolute;
+    top: 107px;
+    width: 960px;
+}
+
+.div-browse .button {
+    all: unset;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-color: #edc988;
+    box-sizing: border-box;
+    height: 51px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 320px;
+}
+
+.div-browse .text-wrapper-3 {
+    color: #edc988;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 31px;
+    left: 122px;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    white-space: nowrap;
+    width: 76px;
+}
+
+.div-browse .div-wrapper {
+    all: unset;
+    box-sizing: border-box;
+    height: 51px;
+    left: 320px;
+    position: absolute;
+    top: 0;
+    width: 320px;
+}
+
+.div-browse .text-wrapper-4 {
+    color: #ffffff;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 31px;
+    left: 100px;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 2px;
+    white-space: nowrap;
+    width: 120px;
+}
+
+.div-browse .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    height: 51px;
+    left: 640px;
+    position: absolute;
+    top: 0;
+    width: 320px;
+}
+
+.div-browse .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 31px;
+    left: 99px;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 2px;
+    white-space: nowrap;
+    width: 122px;
+}
+
+.div-browse .div-swiper-container {
+    height: 428px;
+    left: 32px;
+    overflow: hidden;
+    position: absolute;
+    top: 181px;
+    width: 1856px;
+}
+
+.div-browse .div-home-vendorcard-wrapper {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: -1866px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .div-home-vendorcard {
+    background-color: #ffffff;
+    border-radius: 0px 0px 4px 4px;
+    height: 122px;
+    position: relative;
+    top: 294px;
+}
+
+.div-browse .button-3 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: -1400px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-4 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: -933px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-5 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: -466px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-6 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .div-home-vendorcard-2 {
+    background-color: #ffffff;
+    border-radius: 0px 0px 4px 4px;
+    height: 122px;
+    left: 0;
+    position: absolute;
+    top: 294px;
+    width: 456px;
+}
+
+.div-browse .div-home-name-b {
+    height: 35px;
+    left: 22px;
+    position: absolute;
+    top: 22px;
+    width: 413px;
+}
+
+.div-browse .text-wrapper-6 {
+    color: #0d0d0d;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 23px;
+    font-weight: 400;
+    height: 32px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 34.5px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 196px;
+}
+
+.div-browse .div-home {
+    height: 33px;
+    left: 22px;
+    position: absolute;
+    top: 67px;
+    width: 413px;
+}
+
+.div-browse .ratings-star-svg {
+    height: 21px;
+    left: 0;
+    position: absolute;
+    top: 6px;
+    width: 22px;
+}
+
+.div-browse .span {
+    height: 33px;
+    left: 37px;
+    position: absolute;
+    top: 0;
+    width: 70px;
+}
+
+.div-browse .text-wrapper-7 {
+    color: #3f464b;
+    font-family: "Segoe UI-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 25px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+    width: 70px;
+}
+
+.div-browse .location-svg {
+    height: 17px;
+    left: 122px;
+    position: absolute;
+    top: 8px;
+    width: 22px;
+}
+
+.div-browse .text-wrapper-8 {
+    color: #3f464b;
+    font-family: "Segoe UI-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 25px;
+    left: 159px;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+    width: 69px;
+}
+
+.div-browse .element-webp {
+    background-image: url(https://hips.hearstapps.com/hmg-prod/images/wedding-ring-henna-hands-royalty-free-image-1681760473.jpg);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 294px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-7 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 466px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .text-wrapper-9 {
+    color: #0d0d0d;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 23px;
+    font-weight: 400;
+    height: 32px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 34.5px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 203px;
+}
+
+.div-browse .img {
+    height: 17px;
+    left: 15px;
+    position: absolute;
+    top: 8px;
+    width: 22px;
+}
+
+.div-browse .text-wrapper-10 {
+    color: #3f464b;
+    font-family: "Segoe UI-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    height: 25px;
+    left: 52px;
+    letter-spacing: 0;
+    line-height: 33px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+    width: 69px;
+}
+
+.div-browse .whatsapp {
+    background-image: url(https://hennaparadise.com.au/wp-content/uploads/bb-plugin/cache/14440888_1103620429687134_4103045672172521010_n-square-75010b6133d8ed6c418bc445ff1c694f-5699ddd1a9e36.jpgs);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 294px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-8 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 933px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .text-wrapper-11 {
+    color: #0d0d0d;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 23px;
+    font-weight: 400;
+    height: 32px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 34.5px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 212px;
+}
+
+.div-browse .whatsapp-image {
+    background-image: url("https://786cosmetics.com/cdn/shop/articles/Depositphotos_31247307_xl-2015.jpg?v=1599258766");
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 294px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-9 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 1400px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .text-wrapper-12 {
+    color: #0d0d0d;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 23px;
+    font-weight: 400;
+    height: 32px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 34.5px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 208px;
+}
+
+.div-browse .coverali-webp {
+    background-image: url('https://tasteofmaroc.com/wp-content/uploads/2021/09/henna-mehndi-pixabay-720x540.jpg.webp');
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 294px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-10 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 1866px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-11 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 2332px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-12 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 2799px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-13 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 3266px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-14 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 3732px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-15 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 4198px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-16 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 4665px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .button-17 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 428px;
+    left: 5132px;
+    position: absolute;
+    top: 0;
+    width: 456px;
+}
+
+.div-browse .div-browse-btngroup {
+    height: 76px;
+    left: 32px;
+    object-fit: cover;
+    position: absolute;
+    top: 630px;
+    width: 1856px;
+}

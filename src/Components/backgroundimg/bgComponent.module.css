@@ -1,0 +1,11 @@
+.bgImg {
+    background-image: url("https://c1.wallpaperflare.com/path/266/613/238/clouds-wedding-decoration-venue-54ca064423530995a83d62e0fa85e031.jpg");
+    /* width: 100%;
+    height: 900px; */
+    background-size: 100% 120%;
+}
+
+.textOnImg {
+    /* border: 2px solid greenyellow;   */
+    margin-top: 3%;
+}
