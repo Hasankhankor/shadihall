@@ -74,6 +74,7 @@ function Stay() {
 							<Text>
 								The 5-star Islamabad Serena Hotel is Islamabad’s most
 								sophisticated address for an unforgettable wedding celebration.
+								Your guests will be enchanted our meticulously landscaped gardens,Islamic architecture.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								PKR - 45550
@@ -93,13 +94,20 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								<Link href="/WeddingHall">Book Now</Link>
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
@@ -137,16 +145,20 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
-							<Button variant="ghost" colorScheme="blue">
-								Add to cart
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
@@ -184,16 +196,20 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
-							<Button variant="ghost" colorScheme="blue">
-								Add to cart
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
@@ -232,16 +248,20 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
 							<Button variant="ghost" colorScheme="blue">
-								Add to cart
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
@@ -252,12 +272,12 @@ function Stay() {
 			<br />
 			<br />
 			<div style={{ position: "relative" }}>
-				<Image
-					src="/Black & Yellow Modern Black Friday Sale Outdoor Banner.png"
-					alt="travel Image"
-					width={1900}
-					height={600}
-				/>
+			<Image
+    src="/Black & Yellow Modern Black Friday Sale Outdoor Banner.png"
+    alt="travel Image"
+    width="100%"
+    height="100%"
+/>
 				<button
 					style={{
 						position: "absolute",
@@ -284,8 +304,20 @@ function Stay() {
 					Book Now
 				</button>
 			</div>
+			<Spacer y={20} />
+			<h2
+				style={{
+					fontWeight: "bold",
+					color: "#003580",
+					fontSize: "42px",
+					textAlign: "center",
+				}}
+			>
+				Top in low budget Wedding Halls In Islamabad
+			</h2>
+
 			<Flex justifyContent="center" alignItems="center">
-				<Card maxW="sm" mr="4">
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
 							src="https://image-tc.galaxy.tf/wijpeg-5h8z45mlagjtfm1n4jsszvcqe/whatsapp-image-2021-01-25-at-3.jpg?width=1600&height=1066"
@@ -297,6 +329,7 @@ function Stay() {
 							<Text>
 								The 5-star Islamabad Serena Hotel is Islamabad’s most
 								sophisticated address for an unforgettable wedding celebration.
+								Your guests will be enchanted our meticulously landscaped gardens,Islamic architecture.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								PKR - 45550
@@ -316,18 +349,128 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
 				</Card>
-				<Card maxW="sm" mr="4">
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
+					<CardBody>
+						<Image
+							src="https://cdn0.weddingwire.in/vendor/8084/3_2/960/jpg/11811381-730712030366497-1932142983309670430-n_15_8084.jpeg"
+							alt="Green double couch with wooden legs"
+							borderRadius="lg"
+						/>
+						<Stack mt="6" spacing="3">
+							<Heading size="md">The Mark</Heading>
+							<Text>
+								With our timeless venues, we offer an array of banquet settings
+								to suit every love story. Experience the perfect wedding day in
+								one of our privileged venues and trust a brand you can count on
+								to manage every detail.
+							</Text>
+							<Text color="blue.600" fontSize="2xl">
+								PKR - 45550
+							</Text>
+						</Stack>
+						<Rating style={{ display: "flex", alignItems: "center" }}>
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar filled={false} style={{ color: "orange" }} />
+							<p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+								4.95 out of 5
+							</p>
+						</Rating>
+					</CardBody>
+					<Divider />
+					<CardFooter>
+						<ButtonGroup spacing="2">
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
+							</Button>
+						</ButtonGroup>
+					</CardFooter>
+				</Card>
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
+					<CardBody>
+						<Image
+							src="https://shadiyana-vendor-images.s3.ap-south-1.amazonaws.com/venues/twin-cities/White-Rose/1.webp"
+							alt="Green double couch with wooden legs"
+							borderRadius="lg"
+						/>
+						<Stack mt="6" spacing="3">
+							<Heading size="md">White Rose</Heading>
+							<Text>
+								White Rose Marquee, an elegant vintage themed event space and
+								your ideal location for weddings, engagement parties, corporate
+								events, bridal and baby showers, anniversaries, birthday parties
+								and more.
+							</Text>
+							<Text color="blue.600" fontSize="2xl">
+								PKR - 45550
+							</Text>
+						</Stack>
+						<Rating style={{ display: "flex", alignItems: "center" }}>
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar style={{ color: "orange" }} />
+							<RatingStar filled={false} style={{ color: "orange" }} />
+							<p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">
+								4.95 out of 5
+							</p>
+						</Rating>
+					</CardBody>
+					<Divider />
+					<CardFooter>
+						<ButtonGroup spacing="2">
+
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
+<Button variant="ghost" colorScheme="blue">
+								Add to list
+							</Button>
+						</ButtonGroup>
+					</CardFooter>
+				</Card>
+
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
 							src="https://hall.pk/wp-content/uploads/2020/09/103.jpg"
@@ -335,11 +478,12 @@ function Stay() {
 							borderRadius="lg"
 						/>
 						<Stack mt="6" spacing="3">
-							<Heading size="md">Monal Marquee</Heading>
+							<Heading size="md">The Monal Marquee</Heading>
 							<Text>
 								The Monal Marquee is a popular event venue located in
 								Rawalpindi, Pakistan. The venue is known for its beautiful
-								mountainous views and stunning natural surroundings
+								mountainous views and stunning natural surroundings, as well as
+								its high-quality catering and event management services.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								PKR - 45550
@@ -359,94 +503,26 @@ function Stay() {
 					<Divider />
 					<CardFooter>
 						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
-							<Button variant="ghost" colorScheme="blue">
-								Add to cart
-							</Button>
-						</ButtonGroup>
-					</CardFooter>
-				</Card>
-				<Card maxW="sm" mr="4">
-					<CardBody>
-						<Image
-							src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-							alt="Green double couch with wooden legs"
-							borderRadius="lg"
-						/>
-						<Stack mt="6" spacing="3">
-							<Heading size="md">Living room Sofa</Heading>
-							<Text>
-								This sofa is perfect for modern tropical spaces, baroque
-								inspired spaces, earthy toned spaces and for people who love a
-								chic design with a sprinkle of vintage design.
-							</Text>
-							<Text color="blue.600" fontSize="2xl">
-								PKR - 45550
-							</Text>
-						</Stack>
-					</CardBody>
-					<Divider />
-					<CardFooter>
-						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
-							<Button variant="ghost" colorScheme="blue">
-								Add to cart
-							</Button>
-						</ButtonGroup>
-					</CardFooter>
-				</Card>
 
-				<Card maxW="sm" mr="4">
-					<CardBody>
-						<Image
-							src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-							alt="Green double couch with wooden legs"
-							borderRadius="lg"
-						/>
-						<Stack mt="6" spacing="3">
-							<Heading size="md">Living room Sofa</Heading>
-							<Text>
-								This sofa is perfect for modern tropical spaces, baroque
-								inspired spaces, earthy toned spaces and for people who love a
-								chic design with a sprinkle of vintage design.
-							</Text>
-							<Text color="blue.600" fontSize="2xl">
-								PKR - 45550
-							</Text>
-						</Stack>
-					</CardBody>
-					<Divider />
-					<CardFooter>
-						<ButtonGroup spacing="2">
-							<Button
-								variant="solid"
-								colorScheme="#195bb4"
-								bg="#195bb4"
-								alignItems="center"
-							>
-								Book Now
-							</Button>
+						<Button
+						color={"blue"}
+    variant="solid"
+    colorScheme="blue"
+    alignItems="center"
+    _hover={{ bg: 'blue.500', color: 'white' }}
+>
+    <Link href="/WeddingHall" style={{ color: 'inherit', textDecoration: 'inherit' }}>
+        Book Now
+    </Link>
+</Button>
 							<Button variant="ghost" colorScheme="blue">
-								Add to cart
+								Add to list
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
 				</Card>
 			</Flex>
+
 			<SwiperComponent />
       <Footer/>
 		</>

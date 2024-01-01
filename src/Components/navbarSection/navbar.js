@@ -26,10 +26,12 @@ import  AuthContext  from "../../context/AuthContextProvider";
 import { useContext } from "react";
 import { useRouter } from "next/navigation";
 import destination from "../../app/destination";
-
+import {Spacer} from "@nextui-org/spacer";
 let TSEC = "hello";
 
- function Navbarr() {
+
+export default function Navbar() {
+
 	const toast = useToast();
 	// const { auth, setAuth } = useContext("");
 	const router = useRouter();
@@ -154,6 +156,30 @@ let TSEC = "hello";
 								>
 									List your Halls
 								</Button>
+								<button
+      style={{
+        backgroundColor: 'white',
+        color: 'blue',
+        padding: '10px 20px',
+        border: '1px solid blue',
+        borderRadius: '5px',
+        cursor: 'pointer',
+      }}
+    >
+      Log In
+    </button>
+	<button
+      style={{
+        backgroundColor: 'white',
+        color: 'blue',
+        padding: '10px 20px',
+        border: '1px solid blue',
+        borderRadius: '5px',
+        cursor: 'pointer',
+      }}
+    >
+      Register
+    </button>
 
 								{/* {auth.isAuth ? (
 									<>
@@ -183,37 +209,44 @@ let TSEC = "hello";
 						</Box>
 					</Box>
 
-					<Box
-						// border="2px solid black"
-						className={styles.stackBox}
-					>
-						<HStack spacing="25px">
-							<Link href="/" className={styles.navRow2One}>
-								<IoBedOutline className={styles.iconsStyles1} />
-								Home
-							</Link>
+					<div
+      className={styles.stackBox}
+      style={{
+        // Add your styles for the Box component here
+        // For example:
+		marginRight: '-100px',
+        padding: '8px',
+        // Add more styles as needed
+      }}
+    >
+      <HStack spacing="2px">
+        <Link href="/" className={styles.navRow2One}>
+		<Spacer x={2} />
+          <IoBedOutline className={styles.iconsStyles1} />
+          Home
+        </Link>
 
-							<Link href="/flights" className={styles.navRow2}>
-								<BsFillBalloonHeartFill className={styles.iconsStyles} />
-								Wedding Halls
-							</Link>
+        <Link href="/flights" className={styles.navRow2}>
+          <BsFillBalloonHeartFill className={styles.iconsStyles} />
+          Wedding Halls
+        </Link>
 
-							<Link href="/carrental" className={styles.navRow2}>
-								<IoCarSportOutline className={styles.iconsStyles} />
-								Bridal Cars
-							</Link>
+        <Link href="/carrental" className={styles.navRow2}>
+          <IoCarSportOutline className={styles.iconsStyles} />
+          Bridal Cars
+        </Link>
 
-							<Link href="/destination" className={styles.navRow2}>
-								<IoFlowerOutline className={styles.iconsStyles} />
-								Destination
-							</Link>
-						</HStack>
-					</Box>
+        <Link href="/destination" className={styles.navRow2}>
+          <IoFlowerOutline className={styles.iconsStyles} />
+          Destination
+        </Link>
+      </HStack>
+    </div>
+
 				</Box>
+
 			</Box>
+
 		</>
 	);
 }
-
-
-export default Navbarr

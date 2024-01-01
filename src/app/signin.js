@@ -13,7 +13,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { BsGithub } from "react-icons/bs";
-import Navbar from "../components/navbarSection/navbar";
+import Navbar from "../Components/navbarSection/navbar";
 import { AuthContext } from "../context/AuthContextProvider";
 
 const Signin = () => {

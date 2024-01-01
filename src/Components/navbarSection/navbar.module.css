@@ -30,7 +30,7 @@
 
 .uniqueButton {
     /* height: 20%; */
-    background-color: #004cb8;
+    background-color: #06101d;
     border-radius: 10px;
     border: 1px solid rgb(249, 243, 243);
     color: rgb(241, 239, 239);
@@ -53,13 +53,10 @@
     text-decoration: none;
     justify-content: center;
     color: white;
-    padding: 12px;
-    border-radius: 20px;
-    margin: auto;
-    gap: 3px;
-
-    /* border: 2px solid red;  */
-    /* font-weight: bold; */
+    padding: 5px; /* Adjust padding to reduce space */
+    border-radius: 10px;
+    margin: 1px; /* Adjust margin to reduce space */
+    gap: px;
 }
 
 .navRow2:hover {
@@ -74,9 +71,10 @@
     color: white;
     justify-content: center;
     border: 1px solid white;
-    padding: 12px;
+    padding: 8px; /* Adjust padding to reduce space */
     border-radius: 20px;
-    gap: 3px;
+    margin: 12px; /* Adjust margin for both top and bottom */
+    gap: -2px; /* Adjust negative gap to bring items closer */
 }
 
 .navRow2One:hover {

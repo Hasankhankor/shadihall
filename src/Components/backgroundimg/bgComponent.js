@@ -217,28 +217,36 @@ const BgComponent = ({ heading, subHeading }) => {
         </PopoverContent>
       </Portal>
     </Popover>
-            {/* <Link href={/property?city=${inputData}}>
-              <Button
-                paddingLeft={"60px"}
-                paddingRight={"60px"}
-                height={"50px"}
-                backgroundColor={"#003580"}
-                colorScheme="blue"
-                fontSize={{ sm: "20px" }}
-                width={{
-                  base: "100%",
-                  sm: "100%",
-                  md: "100px",
-                  lg: "100px",
-                  xl: "100px",
-                  "2xl": "100px",
-                }}
-                borderRadius="0"
-                fontWeight={"bold"}
-              >
-                Search
-              </Button>
-            </Link> */}
+    <Link href={`/property?city=${inputData}`} passHref>
+  <Button
+    as="a"  // Use "as" prop to render the button as an anchor tag
+    paddingLeft={"60px"}
+    paddingRight={"60px"}
+    height={"50px"}
+    backgroundColor={"#003580F"}
+    color="#003580"
+    fontSize={{ sm: "20px" }}
+    width={{
+      base: "100%",
+      sm: "100%",
+      md: "100px",
+      lg: "100px",
+      xl: "100px",
+      "2xl": "100px",
+    }}
+    borderRadius="0"
+    fontWeight={"bold"}
+    _hover={{
+      backgroundColor: "#003580",
+      boxShadow: "0 0 10px rgba(0, 53, 128, 0.8)",
+      color: "#FFFFFF",
+      textDecoration: "none",  // Remove underline on hover
+    }}
+  >
+    Search
+  </Button>
+</Link>
+
           </Box>
         </Box>
       </Box>
