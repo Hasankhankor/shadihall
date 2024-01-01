@@ -156,25 +156,29 @@ export default function Navbar() {
 								>
 									List your Halls
 								</Button>
-								<button
-      style={{
-        backgroundColor: 'white',
-        color: 'blue',
-        padding: '10px 20px',
-        border: '1px solid blue',
-        borderRadius: '5px',
-        cursor: 'pointer',
-      }}
-    >
-      Log In
-    </button>
+								<Link href="/signin">
+
+        <button
+          style={{
+			backgroundColor: 'white',
+			color: 'blue',
+			padding: '10px 20px',
+			border: '1px solid blue',
+			borderRadius: '25px',
+			cursor: 'pointer',
+          }}
+        >
+          Log In
+        </button>
+
+    </Link>
 	<button
       style={{
         backgroundColor: 'white',
         color: 'blue',
         padding: '10px 20px',
         border: '1px solid blue',
-        borderRadius: '5px',
+        borderRadius: '25px',
         cursor: 'pointer',
       }}
     >
@@ -214,31 +218,36 @@ export default function Navbar() {
       style={{
         // Add your styles for the Box component here
         // For example:
-		marginRight: '-100px',
-        padding: '8px',
+		marginRight: '100px',
+        padding: '2px',
         // Add more styles as needed
       }}
     >
       <HStack spacing="2px">
-        <Link href="/" className={styles.navRow2One}>
-		<Spacer x={2} />
-          <IoBedOutline className={styles.iconsStyles1} />
-          Home
-        </Link>
-
-        <Link href="/flights" className={styles.navRow2}>
-          <BsFillBalloonHeartFill className={styles.iconsStyles} />
+	  <Link href="/" className={styles.navRow2One}>
+      <Flex align="center">
+        <IoBedOutline className={styles.iconsStyles1} />
+        <Spacer x={2} />
+        Home
+      </Flex>
+    </Link>
+		<Spacer x={9} />
+        <Link href="/Weddinglisthall" className={styles.navRow2}>
+          <BsFillBalloonHeartFill className={styles.iconsStyles}  />
+		  <Spacer x={2} />
           Wedding Halls
         </Link>
-
-        <Link href="/carrental" className={styles.navRow2}>
+		<Spacer x={9} />
+        <Link href="/bridelcars" className={styles.navRow2}>
           <IoCarSportOutline className={styles.iconsStyles} />
-          Bridal Cars
+          <Spacer x={2} />
+		  Bridal Cars
         </Link>
-
-        <Link href="/destination" className={styles.navRow2}>
+		<Spacer x={9} />
+        <Link href="/destinations" className={styles.navRow2}>
           <IoFlowerOutline className={styles.iconsStyles} />
-          Destination
+          <Spacer x={2} />
+		  Destination
         </Link>
       </HStack>
     </div>

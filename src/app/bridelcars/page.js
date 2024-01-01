@@ -1,6 +1,7 @@
-
+"use client"
 import Navbar from "../../Components/navbarSection/navbar";
-import SearchBox from "../../Components/searchBox/searchBox";
+import SearchBox from "../../Components/serachBox/searchBox";
+
 import {
 	Box,
 	Card,

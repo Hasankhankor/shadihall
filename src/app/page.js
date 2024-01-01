@@ -45,6 +45,7 @@ function Stay() {
 
 	return (
 		<>
+
 			<Navbarr />
 			<Script src="https://cdn.tailwindcss.com" />
 			<BgComponent heading="" subHeading="Easy Booking, Easy Living" />

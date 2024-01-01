@@ -1,10 +1,10 @@
 // components/WeddingHall.js
-
+"use client";
 import React from 'react';
-import Navbar from "../../../Components/navbarSection/navbar";
+// import Navbar from "../../../Components/navbarSection/navbar";
 import {Spacer} from "@nextui-org/spacer";
 import { Flex } from '@chakra-ui/react';
-
+import styles from "./Wedding.module.css";
 
 const WeddingHall = ({ hallDetails = {} }) => {
   const { name = 'Unknown Hall', capacity = 'N/A', location = 'N/A', imageSrc = '' } = hallDetails;
@@ -32,7 +32,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
   return (
     <>
 
-    <Navbar/>
+    {/* <Navbar/> */}
 
     <Spacer y={2} />
 <div></div>

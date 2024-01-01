@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SearchIcon } from '@chakra-ui/icons';
 import {
   Box,
   Text,
@@ -15,7 +16,7 @@ import {
   PopoverCloseButton,
   Portal, // Import Portal from Chakra UI
 } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+
 import Link from "next/link";
 import DatePicker from "../DatePicker";
 import styles from "./bgComponent.module.css";
@@ -115,10 +116,9 @@ const BgComponent = ({ heading, subHeading }) => {
             border="2px solid  #003580 "
           >
             <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                // <SearchIcon marginTop={"10px"} color={"gray.400"} />
-              />
+            <InputLeftElement pointerEvents="none">
+        <SearchIcon marginTop={"10px"} color={"gray.400"} />
+      </InputLeftElement>
               <Input
                 type="tel"
                 placeholder="Where to book your Hall?"
@@ -145,7 +145,7 @@ const BgComponent = ({ heading, subHeading }) => {
           alignItems="center"
           textAlign={"center"}
           color={"black"}
-          borderRight={"4px solid #febb02"}
+          borderRight={"4px solid #003580"}
           gap="30px"
         >
           <Text mt="0 !important">{adult} adults</Text>
@@ -223,6 +223,7 @@ const BgComponent = ({ heading, subHeading }) => {
     paddingLeft={"60px"}
     paddingRight={"60px"}
     height={"50px"}
+    font-family= {"Times New Roman"}
     backgroundColor={"#003580F"}
     color="#003580"
     fontSize={{ sm: "20px" }}
@@ -234,7 +235,7 @@ const BgComponent = ({ heading, subHeading }) => {
       xl: "100px",
       "2xl": "100px",
     }}
-    borderRadius="0"
+    borderRadius="25"
     fontWeight={"bold"}
     _hover={{
       backgroundColor: "#003580",

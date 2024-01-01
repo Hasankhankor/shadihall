@@ -1,9 +1,9 @@
 import '../styles/globals.css'
-import { ChakraProvider } from '@chakra-ui/react';
+import { Providers } from './Provider';
 import AuthContextProvider from '../context/AuthContextProvider';
 import Footer from '../components/Footer';
 import React ,{ useState , useEffect } from "react"
-import LoadingScreen from '../components/pre_loader/loadingScreen';
+// import LoadingScreen from '../components/pre_loader/loadingScreen';
 // import {ToastContainer} from 'react-nextjs-toast';
 import GuestContextProvider from "../context/GuestContext";
 import Script from 'next/script';
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Script src="https://cdn.tailwindcss.com" />
 			{loading ? (
-				<ChakraProvider>
+				<Providers>
 					<AuthContextProvider>
 						<GuestContextProvider>
 							<Component {...pageProps} />
@@ -35,9 +35,9 @@ function MyApp({ Component, pageProps }) {
 							<Footer />
 						</GuestContextProvider>
 					</AuthContextProvider>
-				</ChakraProvider>
+				</Providers>
 			) : (
-				<LoadingScreen />
+			alert("helooo ")
 			)}
 		</>
 	);

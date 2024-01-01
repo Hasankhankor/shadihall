@@ -1,5 +1,6 @@
-import Navbar from "../Components/navbarSection/navbar";
-import SearchBox from "../Components/searchBox/searchBox";
+"use client"
+import Navbar from "../../Components/navbarSection/navbar";
+import SearchBox from "../../Components/serachBox/searchBox";
 import {
 	Box,
 	Card,
@@ -16,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { Rating, RatingStar } from "flowbite-react";
 import { Spacer } from "@nextui-org/spacer";
-import WeddingHall from "../app/WeddingHall/page";
+import WeddingHall from "../../app/WeddingHall/page";
 
 function flights() {
 	const stay = [];
