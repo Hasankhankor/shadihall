@@ -1,6 +1,6 @@
 "use client";
 import BgComponent from "../Components/backgroundimg/bgComponent";
-import { Slideshow } from "../Components/explore/slideShow";
+
 import SearchBox from "../Components/serachBox/searchBox";
 import {
 	Box,
@@ -30,7 +30,7 @@ import Head from "next/head";
 import Script from "next/script";
 import Navbarr from "@/Components/navbarSection/navbar";
 import Footer from "@/Components/Footer";
-
+import LogPage from "@/Components/wedlogs";
 
 const cardHoverStyle = {
 	transition: "transform 0.2s ease-in-out",
@@ -51,6 +51,7 @@ function Stay() {
 			<BgComponent heading="" subHeading="Easy Booking, Easy Living" />
 			<SearchBox />
 			<Hero2SVG />
+
 			<Spacer y={10} />
 			<h2
 				style={{
@@ -523,7 +524,7 @@ function Stay() {
 					</CardFooter>
 				</Card>
 			</Flex>
-
+			<LogPage/>
 			<SwiperComponent />
       <Footer/>
 		</>

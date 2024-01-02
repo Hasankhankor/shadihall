@@ -174,8 +174,8 @@ function destination() {
 				<Image
 					src="/Modern Car Rental Promotion Banner.png"
 					alt="travel Image"
-					width={1900}
-					height={800}
+					width="100%"
+					height="100%"
 				/>
 				<button
 					style={{

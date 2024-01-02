@@ -143,12 +143,10 @@ export default function Navbar() {
 									/>
 								</Link>
 
-								<Link href="#">
+								<Link href="/chatscreen">
 									{" "}
 									<Icon color="white" w={25} h={25} />
-								</Link>
-
-								<Button
+									<Button
 									onClick={() => checkToken()}
 									colorScheme="blue"
 									transition="box-shadow 0.2s ease-in-out"
@@ -156,6 +154,9 @@ export default function Navbar() {
 								>
 									List your Halls
 								</Button>
+								</Link>
+
+
 								<Link href="/signin">
 
         <button
@@ -172,6 +173,7 @@ export default function Navbar() {
         </button>
 
     </Link>
+	<Link href="/register">
 	<button
       style={{
         backgroundColor: 'white',
@@ -184,7 +186,7 @@ export default function Navbar() {
     >
       Register
     </button>
-
+	</Link>
 								{/* {auth.isAuth ? (
 									<>
 										<Button
