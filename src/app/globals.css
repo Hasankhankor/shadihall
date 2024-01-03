@@ -86,7 +86,7 @@ body {
 } */
 
 
-/* @media all and (min-width: 401px) and (max-width: 750px){
+@media all and (min-width: 401px) and (max-width: 750px){
   .each-slide{
       display: grid;
       grid-template-columns: repeat(3,1fr);
@@ -114,7 +114,7 @@ body {
   .Home_Featured_Brands_Item1 div:last-child{
       font-size: 50%;
   }
-}   */
+}
 /* upper Weddingjs Details */
 
 

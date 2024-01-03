@@ -29,6 +29,8 @@ import {
 
   Link,
 } from '@chakra-ui/react';
+import axios from "axios";
+
 const cardHoverStyle = {
 	transition: "transform 0.2s ease-in-out",
 	"&:hover": {
@@ -39,6 +41,7 @@ const cardHoverStyle = {
 
 const signinReq = () => {
   // Implement your sign-in logic here
+
 };
 function useRegister() {
     const [email, setEmail] = useState('');
@@ -47,8 +50,30 @@ function useRegister() {
     const [hallLocation, setHallLocation] = useState('');
     const [hallPrice, setHallPrice] = useState('');
 
-    const signinReq = () => {
-      // Implement your sign-in logic here
+    const signinReq = async () => {
+      try {
+        const formData = {
+          email:email,
+          password:password,
+          hallname:hallName,
+          halllocation:hallLocation,
+          hallprice:hallPrice
+
+
+        };
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
+        const response = await axios.post('http://192.168.18.125:5000/api/user/register', formData);
+
+        // Handle the response as needed
+        console.log('API Response:', response.data);
+
+        // You may want to redirect the user or perform other actions here
+
+      } catch (error) {
+        // Handle errors
+        console.error('API Request Error:', error.message);
+      }
     };
 
     const handleImageUpload = (event) => {
@@ -82,7 +107,7 @@ function useRegister() {
   </Heading>
 
   <VStack m="30px auto" w="350px" p="15px">
-    <FormControl>
+    <FormControl >
       <FormLabel color="blackAlpha.800" fontSize="14px">
         Email
       </FormLabel>
@@ -104,7 +129,7 @@ function useRegister() {
         placeholder="Password"
       />
 
-      {/* Additional input fields for Hall information */}
+
       <FormLabel color="blackAlpha.800" fontSize="14px">
         Hall Name
       </FormLabel>
@@ -138,19 +163,12 @@ function useRegister() {
         placeholder="Hall Price"
       />
 
-      {/* Image upload field (a simple representation) */}
-      <FormLabel color="blackAlpha.800" fontSize="14px">
-        Upload Images
-      </FormLabel>
-      <Input
-        type="file"
-        onChange={(e) => handleImageUpload(e)}
-        accept="image/*"
-        multiple
-      />
 
       <Input
-        onClick={() => signinReq()}
+      onClick={()=>{
+        signinReq()
+      }}
+
         mb="15px"
         fontSize="14px"
         color="white"
@@ -180,7 +198,7 @@ function useRegister() {
       </Text>
 
       <Flex gap="10px">
-        {/* ... rest of your social login links ... */}
+
       </Flex>
     </Box>
 

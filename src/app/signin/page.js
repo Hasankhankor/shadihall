@@ -1,4 +1,7 @@
 'use client'
+// Import necessary modules and components
+import axios from "axios";
+import Navbar from "../../Components/navbarSection/navbar";
 import {
 	VStack,
 	Box,
@@ -10,21 +13,15 @@ import {
 	Heading,
 	Flex,
   } from "@chakra-ui/react";
-  import axios from "axios";
-  import { useRouter } from 'next/navigation'
-  import { useContext, useEffect, useState } from "react";
-  import { BsGithub } from "react-icons/bs";
-  import Navbar from "../../Components/navbarSection/navbar";
+
+  import { useState, useContext } from "react";
+  import { useRouter } from 'next/navigation';
   import { AuthContext } from "../../context/AuthContextProvider";
-  import { Spacer } from "@nextui-org/spacer";
+
   const Signin = () => {
 	const router = useRouter();
 	const authContext = useContext(AuthContext);
-	console.log(authContext); // Check the value in the console
-
-	// Ensure a default value is provided if authContext is undefined
-	const { auth = {}, setAuth } = authContext || {};
-	const { isReg } = auth;
+	const { setAuth } = authContext || {};
 
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -36,26 +33,30 @@ import {
 
 	const signinReq = async () => {
 	  try {
-		const res = await axios.post("/api/user/signin", {
-		  email,
-		  password,
+		const res = await axios.post("http://192.168.18.125:5000/api/user/login", {
+		  email:email,
+		  password:password,
 		});
-
+		localStorage.setItem("email",res.data.email)
 		console.log(res.data);
 
 		if (res.data) {
-		  setAuth({ ...auth, isAuth: res.data });
-		  reset();
-		  router.push("/");
+			localStorage.setItem("email",email)
+			reset();
+			router.push("/");
+
+		}
+
+
+
+
+	 else {
+		  console.error("No token received in the response");
 		}
 	  } catch (error) {
 		console.error("Error during sign-in", error);
 	  }
 	};
-
-	useEffect(() => {
-	  if (isReg) setEmail(isReg.email);
-	}, [isReg]);
 
 
 	return (

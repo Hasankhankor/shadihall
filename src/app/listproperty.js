@@ -78,6 +78,15 @@ const ListProperty = () => {
 				  </Link>
 				</Box>
 			  </Box>
+			  {/* <FormLabel color="blackAlpha.800" fontSize="14px">
+        Upload Images
+      </FormLabel>
+      <Input
+        type="file"
+        onChange={(e) => handleImageUpload(e)}
+        accept="image/*"
+        multiple
+      /> */}
 			</Box>
 		  </Box>
 		) : (

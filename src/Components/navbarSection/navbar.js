@@ -23,59 +23,34 @@ import {
 } from "@chakra-ui/react";
 // import DraverNav from "./draverNav";
 import  AuthContext  from "../../context/AuthContextProvider";
-import { useContext } from "react";
+import { useContext, useEffect,useState } from "react";
 import { useRouter } from "next/navigation";
 import destination from "../../app/destination";
 import {Spacer} from "@nextui-org/spacer";
+
 let TSEC = "hello";
 
 
 export default function Navbar() {
+	const [emailValids, setemailValid] = useState("");
 
-	const toast = useToast();
-	// const { auth, setAuth } = useContext("");
 	const router = useRouter();
+	const toast = useToast();
 
 	const SignoutReq = () => {
-		setAuth({ ...auth, isAuth: "" });
-		router.push("/");
+	  setAuth({ ...auth, isAuth: "" });
+	  router.push("/");
 	};
 
 	const checkToken = () => {
-		if (!auth.isAuth) {
-			return router.push("/signin");
-		} else {
-			const check = jwt.verify(auth.isAuth.token, TSEC, (err, verified) => {
-				if (err) {
-					console.log(err);
-					toast({
-						title: "Sessioned timed out!",
-						description: "Please relogin.",
-						status: "error",
-						duration: 3400,
-						isClosable: true,
-						position: "top",
-					});
-					return router.push("/signin");
-				} else {
-					if (verified.role === "dealer") {
-						console.log(verified.role);
-						return router.push("/listproperty");
-					} else {
-						router.push("/");
-						toast({
-							title: "You're not a Hall lister.",
-							description: "Please login as a Hall lister",
-							status: "warning",
-							duration: 3400,
-							isClosable: true,
-							position: "top",
-						});
-					}
-				}
-			});
-		}
+	  // ... (your existing checkToken logic)
 	};
+
+	useEffect(() => {
+	  const emailValid = localStorage.getItem("email");
+	  setemailValid(emailValid);
+	}, []);
+
 
 	return (
 		<>
