@@ -59,38 +59,46 @@ const LogPage = () => {
 
   return (
     <div className="wedding-page">
-      <Head>
-        <title>Booked Wedding Halls</title>
-      </Head>
-      <h1>Booked Wedding Halls</h1>
-      <div className="wedding-cards-container" ref={containerRef}>
-        {bookedHalls.map((hall, index) => (
-          <WeddingCard key={index} {...hall} />
-        ))}
-      </div>
-      <style jsx global>{`
-        body {
-          font-family: 'Arial', sans-serif;
-        }
+  <Head>
+    <title>Booked Wedding Halls</title>
+  </Head>
+  <h1 className="blue-heading">Booked Wedding Halls</h1>
+  <div className="wedding-cards-container" ref={containerRef}>
+    {bookedHalls.map((hall, index) => (
+      <WeddingCard key={index} {...hall} />
+    ))}
+  </div>
+  <style jsx global>{`
+    body {
+      font-family: 'Arial', sans-serif;
+    }
 
-        .wedding-page {
-          max-width: 800px;
-          margin: auto;
-          padding: 20px;
-        }
+    .wedding-page {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
 
-        .wedding-cards-container {
-          max-height: 400px;
-          overflow-y: auto;
-        }
+    .blue-heading {
+      color: blue;
+      border-bottom: 2px solid blue;
+      padding-bottom: 5px;
+      text-align: center; /* Center the text within the h1 */
+      font-size: 28px;
+    }
 
-        .wedding-card {
-          border: 2px solid #ddd;
-          padding: 10px;
-          margin-bottom: 20px;
-        }
-      `}</style>
-    </div>
+    .wedding-cards-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .wedding-card {
+      border: 2px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  `}</style>
+</div>
   );
 };
 

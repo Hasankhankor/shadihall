@@ -21,6 +21,8 @@ import Link from "next/link";
 import DatePicker from "../DatePicker";
 import styles from "./bgComponent.module.css";
 import { GuestContext } from "../../context/GuestContext";
+
+
 const BgComponent = ({ heading, subHeading }) => {
   const [inputData, setInputData] = useState("");
   const [adult, setAdult] = useState(0);
@@ -61,20 +63,20 @@ const BgComponent = ({ heading, subHeading }) => {
   bg="black"
 >
   <Box className={styles.bgImg} width="100%" height="110%">
-    <Box w="80%" margin="auto" p={7}>
+  <Box w={{ base: "100%", md: "80%" }} margin="auto" p={7}>
       <Box
         className={styles.textOnImg}
         display="flex"
         justifyContent="center"
         alignItems="center"
-        mb={-10}
+        mb={{ base: -6, md: -10 }}
       >
         <Text
-          fontSize={{ base: "24px", md: "40px", lg: "56px" }}
+          fontSize={{ base: "20px", md: "40px", lg: "56px" }}
           fontWeight="bold"
           textShadow="4px 7px 16px #003580"
         >
-          Make a 3-minute plan for wedding.
+          Make a 3-minute plan for the wedding.
         </Text>
       </Box>
 
@@ -85,170 +87,92 @@ const BgComponent = ({ heading, subHeading }) => {
         alignItems="center"
       >
         <Text
-          fontSize={{ base: "24px", md: "40px", lg: "56px" }}
+          fontSize={{ base: "20px", md: "40px", lg: "56px" }}
           textShadow="7px 8px 8px #003580"
         >
           {subHeading}
         </Text>
       </Box>
-          </Box>
+    </Box>
           <Box
-            display={{
-              base: "block",
-              sm: "block",
-              md: "flex",
-              lg: "flex",
-              xl: "flex",
-              "2xl": "flex",
-            }}
-            width={{
-              base: "",
-              sm: "100%",
-              md: "98%",
-              lg: "",
-              xl: "88%",
-              "2xl": "50%",
-            }}
-            margin={"auto"}
-            marginTop={"-20px"}
-            backgroundColor={"white"}
-            height={"auto"}
-            border="2px solid  #003580 "
-          >
-            <InputGroup>
-            <InputLeftElement pointerEvents="none">
-        <SearchIcon marginTop={"10px"} color={"gray.400"} />
+  display={{
+    base: "block",
+    sm: "block",
+    md: "flex",
+    lg: "flex",
+    xl: "flex",
+    "2xl": "flex",
+  }}
+  flexDirection={{
+    base: "column",
+    md: "row",
+  }}
+  width={{
+    base: "100%",
+    sm: "100%",
+    md: "98%",
+    lg: "",
+    xl: "88%",
+    "2xl": "50%",
+  }}
+  margin={"auto"}
+  marginTop={"-20px"}
+  backgroundColor={"white"}
+  height={"auto"}
+  border="2px solid #003580"
+>
+<InputGroup
+      size="md" // Adjust the size of the InputGroup
+      // Add some border-radius for a modern look
+      borderColor="gray.200" // Change the border color if needed
+    >
+      <InputLeftElement pointerEvents="none">
+        <SearchIcon marginTop={"12px"} color={"gray.400"} />
       </InputLeftElement>
-              <Input
-                type="tel"
-                placeholder="Where to book your Hall?"
-                borderRight={"4px solid "}
-                height="50px"
-                borderRadius={"0px"}
-                color={"black"}
-                onChange={({ target }) => setInputData(target.value)}
-              />
-            </InputGroup>
-            <Popover>
-      <PopoverTrigger>
-        <Box
-          display={{
-            base: "none",
-            sm: "none",
-            md: "flex",
-            lg: "flex",
-            xl: "true",
-            "2xl": "flext",
-          }}
-          w="auto"
-          justifyContent={"space-evenly"}
-          alignItems="center"
-          textAlign={"center"}
-          color={"black"}
-          borderRight={"4px solid #003580"}
-          gap="30px"
-        >
-          <Text mt="0 !important">{adult} adults</Text>
-          <Text mt="0 !important">{childrens} children</Text>
-          <Text mt="0 !important">{room} rooms</Text>
-        </Box>
-      </PopoverTrigger>
-      <Portal>
-        <PopoverContent>
-          <PopoverArrow />
-          <PopoverHeader color={"white"}>Header</PopoverHeader>
-          <PopoverBody display={"flex"} justifyContent={"space-around"}>
-    <Text width={"40%"}>Adult</Text>
-    <Button
-      disabled={adult === 0}
-      onClick={handledec}
-      border={"1px solid blue"}
-      color={"black"}
-    >
-      -
-    </Button>
-    <Text marginTop={"5px"}>{adult}</Text>
-    <Button
-      onClick={handleIncre}
-      border={"1px solid blue"}
-      color={"black"}
-    >
-      +
-    </Button>
-  </PopoverBody>
-          <PopoverBody display={"flex"} justifyContent={"space-around"}>
-            <Text width={"40%"}>Children</Text>
-            <Button
-              disabled={childrens === 0}
-              onClick={handlechildrendec}
-              border={"1px solid blue"}
-              color={"black"}
-            >
-              -
-            </Button>
-            <Text marginTop={"5px"}>{childrens}</Text>
-            <Button
-              onClick={handlechildrenincre}
-              border={"1px solid blue"}
-              color={"black"}
-            >
-              +
-            </Button>
-          </PopoverBody>
-          <PopoverBody display={"flex"} justifyContent={"space-around"}>
-            <Text width={"40%"}>Hall</Text>
-            <Button
-              disabled={room === 0}
-              onClick={handleroomdec}
-              border={"1px solid #003580"}
-              color={"black"}
-            >
-              -
-            </Button>
-            <Text marginTop={"5px"}>{room}</Text>
-            <Button
-              onClick={handleroomincre}
-              border={"1px solid blue"}
-              color={"black"}
-            >
-              +
-            </Button>
-          </PopoverBody>
-        </PopoverContent>
-      </Portal>
-    </Popover>
-    <Link href={`/property?city=${inputData}`} passHref>
-  <Button
-    as="a"  // Use "as" prop to render the button as an anchor tag
-    paddingLeft={"60px"}
-    paddingRight={"60px"}
-    height={"50px"}
-    font-family= {"Times New Roman"}
-    backgroundColor={"#003580F"}
-    color="#003580"
-    fontSize={{ sm: "20px" }}
-    width={{
-      base: "100%",
-      sm: "100%",
-      md: "100px",
-      lg: "100px",
-      xl: "100px",
-      "2xl": "100px",
-    }}
-    borderRadius="25"
-    fontWeight={"bold"}
-    _hover={{
-      backgroundColor: "#003580",
-      boxShadow: "0 0 10px rgba(0, 53, 128, 0.8)",
-      color: "#FFFFFF",
-      textDecoration: "none",  // Remove underline on hover
-    }}
-  >
-    Search
-  </Button>
-</Link>
+      <Input
+        type="tel"
+        placeholder="Where to book your Hall?"
+        height="50px" // Adjust the height to make it smaller
+         // Match the border-radius with the InputGroup
+        color={"black"}
+        onChange={({ target }) => setInputData(target.value)}
+        _focus={{
+          borderColor: "blue.300", // Change the border color on focus if needed
+        }}
+      />
+    </InputGroup>
 
-          </Box>
+  <Link href={`/property?city=${inputData}`} passHref>
+    <Button
+      as="a"
+      paddingLeft={"60px"}
+      paddingRight={"60px"}
+      height={"50px"}
+      fontFamily={"Times New Roman"}
+      backgroundColor={"#003580F"}
+      color="#003580"
+      fontSize={{ base: "16px", sm: "20px" }}
+      width={{
+        base: "100%",
+        sm: "100%",
+        md: "100px",
+        lg: "100px",
+        xl: "100px",
+        "2xl": "100px",
+      }}
+      borderRadius="25"
+      fontWeight={"bold"}
+      _hover={{
+        backgroundColor: "#003580",
+        boxShadow: "0 0 10px rgba(0, 53, 128, 0.8)",
+        color: "#FFFFFF",
+        textDecoration: "none",
+      }}
+    >
+      Search
+    </Button>
+  </Link>
+</Box>;
         </Box>
       </Box>
   );

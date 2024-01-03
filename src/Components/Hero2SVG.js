@@ -4,7 +4,16 @@ const HennaArtistsLink = () => {
 	const containerStyles = {
 		display: "flex",
 		justifyContent: "center",
-	};
+		maxWidth: "100%",
+		padding: "0 20px", // Add padding for better responsiveness
+
+		// Media query for smaller screens
+		'@media (max-width: 768px)': {
+		  flexDirection: "column", // Change flex direction for smaller screens
+		  alignItems: "center", // Center items when in column layout
+		},
+
+	  };
 	const [isHovered1, setIsHovered1] = useState(false);
 	const [isHovered2, setIsHovered2] = useState(false);
 	const [isHovered3, setIsHovered3] = useState(false);
@@ -22,6 +31,7 @@ const HennaArtistsLink = () => {
 		// Change background color on hover
 		backgroundColor: isHovered1 ? "white" : "initial",
 		backgroundColor: isHovered2 ? "white" : "initial",
+
 	};
 	const hoverStyles = {
 		transform: "scale(1.05)",

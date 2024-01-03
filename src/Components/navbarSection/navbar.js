@@ -28,6 +28,7 @@ import { useRouter } from "next/navigation";
 import destination from "../../app/destination";
 import {Spacer} from "@nextui-org/spacer";
 
+
 let TSEC = "hello";
 
 
@@ -114,13 +115,13 @@ export default function Navbar() {
 											"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/2560px-Flag_of_Pakistan.svg.png"
 										}
 										alt="Pakistan Flag"
-										marginTop="4px"
+										marginTop="-5px"
 									/>
 								</Link>
 
 								<Link href="/chatscreen">
 									{" "}
-									<Icon color="white" w={25} h={25} />
+
 									<Button
 									onClick={() => checkToken()}
 									colorScheme="blue"
@@ -130,7 +131,7 @@ export default function Navbar() {
 									List your Halls
 								</Button>
 								</Link>
-
+								<Spacer y={10} />
 
 								<Link href="/signin">
 
