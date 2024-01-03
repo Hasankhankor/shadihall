@@ -7,6 +7,7 @@ const registerAPI = require('./api/user/register');
 const bodyParser = require('body-parser');
 const User = require('./model/User');
 const bcrypt = require('bcryptjs');
+const { getUserByEmail } = require("./api/user/userServices");
 
 const app = express();
 const server = http.createServer(app);
@@ -42,14 +43,25 @@ console.log(email,password)
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+app.get("/api/user", async (req, res) => {
+	try {
+     // Replace with your actual collection name
+
+    const user = await User.find();
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
-  socket.on('message', (data) => {
-    io.emit('message', data);
-  });
-
+   socket.on("chat message", (message) => {
+			io.emit("chat message", message); // Broadcast the message to all connected clients
+		});
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
   });

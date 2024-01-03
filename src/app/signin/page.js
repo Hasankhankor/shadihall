@@ -33,15 +33,16 @@ import {
 
 	const signinReq = async () => {
 	  try {
-		const res = await axios.post("http://192.168.18.125:5000/api/user/login", {
-		  email:email,
-		  password:password,
+		const res = await axios.post("http://192.168.100.16:5000/api/user/login", {
+			email: email,
+			password: password,
 		});
-		localStorage.setItem("email",res.data.email)
+		
 		console.log(res.data);
 
 		if (res.data) {
-			localStorage.setItem("email",email)
+			localStorage.setItem("email",true)
+			localStorage.setItem("email2",email)
 			reset();
 			router.push("/");
 

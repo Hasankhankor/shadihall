@@ -3,10 +3,11 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
+
 import Navbar from "../../Components/navbarSection/navbar";
 import SearchBox from "../../Components/serachBox/searchBox";
 
-const socket = io('http://localhost:5000');
+const socket = io("http://192.168.100.16:5000");
 const adminUsername = 'Hasan';
 function App() {
     const [messages, setMessages] = useState([]);
@@ -31,7 +32,8 @@ function App() {
     if (newMessage.trim() !== '') {
 
       socket.emit('message', { text: newMessage });
-      setNewMessage('');
+      console.log(newMessage)
+      setMessages(newMessage)
     }
   };
 
@@ -48,7 +50,7 @@ function App() {
           <h1>{chatInfo.adminUsername}</h1>
 
           <div>
-            {messages.map((message, index) => (
+            {/* {messages.map((message, index) => (
               <div
                 key={index}
                 style={{
@@ -59,7 +61,7 @@ function App() {
                   color: message.sender ? 'white' : 'black',
                 }}
               >
-                {/* Display user photo and name in each chat message */}
+                
                 {message.sender && (
                   <>
                     <img src={message.sender.photo} alt="User Photo" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
@@ -68,7 +70,7 @@ function App() {
                 )}
                 {message.text}
               </div>
-            ))}
+            ))} */}
           </div>
         </div>
         <div style={{ padding: '20px', borderTop: '1px solid #ccc' }}>
@@ -80,7 +82,9 @@ function App() {
             style={{ width: '70%', padding: '10px', marginRight: '10px' }}
           />
           <button
-            onClick={handleSendMessage}
+            onClick={()=>{
+              handleSendMessage()
+            }}
             style={{
               padding: '10px',
               backgroundColor: '#003B95',

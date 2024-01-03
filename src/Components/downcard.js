@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Link from "next/link";
 
 import {
@@ -16,6 +16,7 @@ import {
 	Button,
 } from "@chakra-ui/react";
 import { Rating, RatingStar } from "flowbite-react";
+import axios from 'axios';
 
 
 const cardHoverStyle = {
@@ -25,6 +26,23 @@ const cardHoverStyle = {
 	},
 };
 const downcard = () => {
+
+	useEffect(() => {
+	  const fetch =async()=>{
+		const email =localStorage.getItem("email2")
+		try {
+        const response = await axios.get(`http://192.168.100.16:5000/api/user`);
+        console.log(response.data)
+      } catch (error) {
+        console.error('Error fetching data from MongoDB:', error);
+      }
+    
+
+
+	  }
+	  fetch()
+	}, [])
+	
   return (
     <div>
       <>

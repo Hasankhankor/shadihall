@@ -33,13 +33,13 @@ let TSEC = "hello";
 
 
 export default function Navbar() {
-	const [emailValids, setemailValid] = useState("");
+	const [emailValids, setemailValid] = useState(false);
 
 	const router = useRouter();
 	const toast = useToast();
 
 	const SignoutReq = () => {
-	  setAuth({ ...auth, isAuth: "" });
+	 localStorage.removeItem("email")
 	  router.push("/");
 	};
 
@@ -121,19 +121,18 @@ export default function Navbar() {
 
 								<Link href="/chatscreen">
 									{" "}
-
 									<Button
-									onClick={() => checkToken()}
-									colorScheme="blue"
-									transition="box-shadow 0.2s ease-in-out"
-									boxShadow="0 0 10px 3px rgba(255, 255, 255, 0.5)"
-								>
-									List your Halls
-								</Button>
+										onClick={() => checkToken()}
+										colorScheme="blue"
+										transition="box-shadow 0.2s ease-in-out"
+										boxShadow="0 0 10px 3px rgba(255, 255, 255, 0.5)"
+									>
+										List your Halls
+									</Button>
 								</Link>
 								<Spacer y={10} />
 
-								<Link href="/signin">
+								{/* <Link href="/signin">
 
         <button
           style={{
@@ -162,78 +161,102 @@ export default function Navbar() {
     >
       Register
     </button>
-	</Link>
-								{/* {auth.isAuth ? (
+	</Link> */}
+								{emailValids ? (
 									<>
 										<Button
 											onClick={() => SignoutReq()}
-											className={styles.authLink}
+											style={{
+												backgroundColor: "white",
+												color: "blue",
+												padding: "10px 20px",
+												border: "1px solid blue",
+												borderRadius: "25px",
+												cursor: "pointer",
+											}}
 										>
 											Sign out
 										</Button>
-										<Avatar bg="yellow.400" name={auth.isReg.name} />
+										<Avatar bg="yellow.400" />
 									</>
 								) : (
 									<>
-										<Link href="/signup" className={styles.authLink}>
-											<Button className={styles.authLink}>Register</Button>
+										<Link href="/signup">
+											<Button
+												style={{
+													backgroundColor: "white",
+													color: "blue",
+													padding: "10px 20px",
+													border: "1px solid blue",
+													borderRadius: "25px",
+													cursor: "pointer",
+												}}
+											>
+												Register
+											</Button>
 										</Link>
 
 										<Link href="/signin" className={styles.authLink}>
-											<Button className={styles.authLink}>Sign in</Button>
+											<Button
+												style={{
+													backgroundColor: "white",
+													color: "blue",
+													padding: "10px 20px",
+													border: "1px solid blue",
+													borderRadius: "25px",
+													cursor: "pointer",
+												}}
+											>
+												Sign in
+											</Button>
 										</Link>
 									</>
-								)} */}
+								)}
 							</HStack>
 						</Box>
-						<Box className={styles.smallScreen}>
-							{/* <DraverNav /> */}
-						</Box>
+						<Box className={styles.smallScreen}>{/* <DraverNav /> */}</Box>
 					</Box>
 
 					<div
-      className={styles.stackBox}
-      style={{
-        // Add your styles for the Box component here
-        // For example:
-		marginRight: '100px',
-        padding: '2px',
-        // Add more styles as needed
-      }}
-    >
-      <HStack spacing="2px">
-	  <Link href="/" className={styles.navRow2One}>
-      <Flex align="center">
-        <IoBedOutline className={styles.iconsStyles1} />
-        <Spacer x={2} />
-        Home
-      </Flex>
-    </Link>
-		<Spacer x={9} />
-        <Link href="/Weddinglisthall" className={styles.navRow2}>
-          <BsFillBalloonHeartFill className={styles.iconsStyles}  />
-		  <Spacer x={2} />
-          Wedding Halls
-        </Link>
-		<Spacer x={9} />
-        <Link href="/bridelcars" className={styles.navRow2}>
-          <IoCarSportOutline className={styles.iconsStyles} />
-          <Spacer x={2} />
-		  Bridal Cars
-        </Link>
-		<Spacer x={9} />
-        <Link href="/destinations" className={styles.navRow2}>
-          <IoFlowerOutline className={styles.iconsStyles} />
-          <Spacer x={2} />
-		  Destination
-        </Link>
-      </HStack>
-    </div>
-
+						className={styles.stackBox}
+						style={{
+							// Add your styles for the Box component here
+							// For example:
+							marginRight: "100px",
+							padding: "2px",
+							// Add more styles as needed
+						}}
+					>
+						<HStack spacing="2px">
+							<Link href="/" className={styles.navRow2One}>
+								<Flex align="center">
+									<IoBedOutline className={styles.iconsStyles1} />
+									<Spacer x={2} />
+									Home
+								</Flex>
+							</Link>
+							<Spacer x={9} />
+							<Link href="/Weddinglisthall" className={styles.navRow2}>
+								<BsFillBalloonHeartFill className={styles.iconsStyles} />
+								<Spacer x={2} />
+								Wedding Halls
+							</Link>
+							<Spacer x={9} />
+							<Link href="/bridelcars" className={styles.navRow2}>
+								<IoCarSportOutline className={styles.iconsStyles} />
+								<Spacer x={2} />
+								Bridal Cars
+							</Link>
+							<Spacer x={9} />
+							<Link href="/destinations" className={styles.navRow2}>
+								<IoFlowerOutline className={styles.iconsStyles} />
+								<Spacer x={2} />
+								Destination
+							</Link>
+						</HStack>
+					</div>
 				</Box>
-
 			</Box>
-
 		</>
 	);
 }
