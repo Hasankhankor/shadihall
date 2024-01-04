@@ -18,7 +18,7 @@ function App() {
     // Listen for incoming messages
     socket.on('message', (data) => {
       setMessages((prevMessages) => [...prevMessages, data]);
-      console.log('newMessage:', newMessage);
+      // console.log('newMessage:', newMessage);
 
     });
 
@@ -61,7 +61,7 @@ function App() {
                   color: message.sender ? 'white' : 'black',
                 }}
               >
-                
+
                 {message.sender && (
                   <>
                     <img src={message.sender.photo} alt="User Photo" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />

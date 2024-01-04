@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
 	Box,
 	Button,
@@ -11,13 +12,13 @@ import {
 } from "@chakra-ui/react";
 
 import { BiChevronDown } from "react-icons/bi";
-import FilterBox from "../../components/Filters";
-import SearchCard from "../../components/SearchCard";
-import SearchForm from "../../components/SearchForm";
+import FilterBox from "../../Components/Filters";
+import SearchCard from "../../Components/SearchCard";
+import SearchForm from "../../Components/SearchForm";
 import { useRouter } from "next/router";
 
-import { useEffect, useState } from "react";
-import Navbar from "../../components/navbarSection/navbar";
+
+import Navbar from "../../Components/navbarSection/navbar";
 import { connect } from "../../db.connect";
 import { PropertyModel } from "../../models/property.model";
 
@@ -33,14 +34,14 @@ const Property = ({ data }) => {
 			pathname: "/property",
 			query: { city: city, filterBy: filter },
 		});
-	}, [filter]);
+	}, []);
 
 	useEffect(() => {
 		router.push({
 			pathname: "/property",
 			query: { city: city, sortBy: sort },
 		});
-	}, [sort]);
+	}, []);
 
 	return (
 		<>

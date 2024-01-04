@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import Link from "next/link";
 
 import {
@@ -25,24 +25,23 @@ const cardHoverStyle = {
 		transform: "scale(1.19)",
 	},
 };
-const downcard = () => {
-
+const DownCard = () => {
 	useEffect(() => {
-	  const fetch =async()=>{
-		const email =localStorage.getItem("email2")
+	  const fetchData = async () => {
+		const email = localStorage.getItem("email2");
 		try {
-        const response = await axios.get(`http://192.168.100.16:5000/api/user`);
-        console.log(response.data)
-      } catch (error) {
-        console.error('Error fetching data from MongoDB:', error);
-      }
-    
+		  const response = await axios.get(`http://192.168.100.16:5000/api/user`);
+		  // Handle the response data as needed
+		  // console.log(response.data);
+		} catch (error) {
+		  // Handle errors if any
+		  // console.error('Error fetching data from MongoDB:', error);
+		}
+	  };
 
+	  fetchData();
+	}, []);
 
-	  }
-	  fetch()
-	}, [])
-	
   return (
     <div>
       <>
@@ -261,4 +260,4 @@ const downcard = () => {
   )
 }
 
-export default downcard
+export default DownCard

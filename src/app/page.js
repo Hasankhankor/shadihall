@@ -18,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { Nextrip } from "../Components/explore/nextTrip";
 import Topcard from "@/Components/topcard";
-import Downcard from "@/Components/downcard";
+import DownCard from "@/Components/downcard";
 // import Navbar from "../Components/navbarSection/navbar";
 import { Rating, RatingStar } from "flowbite-react";
 
@@ -115,7 +115,7 @@ function Stay() {
 			>
 				Top in low budget Wedding Halls In Islamabad
 			</h2>
-           <Downcard/>
+           <DownCard/>
 		   <Spacer y={20} />
 			<LogPage/>
 			<Spacer y={20} />
