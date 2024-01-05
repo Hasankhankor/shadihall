@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Adjust this based on your layout */
+    color: #fff; /* Set text color to white */
+  }
+
+  .wrapper {
+    max-width: 500px;
+    padding: 1rem;
+    border: 1px solid #b3b5c9; /* Add border */
+    background-color: #b3b5c9; /* Add background color */
+    color: #fff; /* Set text color to white */
+    border-radius: 8px; /* Optional: Adjust border-radius */
+  }
+
+  .formHeader {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .close {
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .formGrp {
+    margin-bottom: 1rem;
+    color: #fff;
+  }

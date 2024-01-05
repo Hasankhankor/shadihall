@@ -26,7 +26,7 @@ const SearchBox = () => {
 		<>
 			<Box
 				width={"100%"}
-				backgroundColor={"#003580"}
+				backgroundColor={"#041c4c"}
 				//  height={"200px"}
 				height={{
 					base: "150px",

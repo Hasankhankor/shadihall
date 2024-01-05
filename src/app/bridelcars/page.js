@@ -173,7 +173,7 @@ function carRental() {
 				<Image
 					src="/Modern Car Rental Promotion Banner.png"
 					alt="travel Image"
-					width={1900}
+					width={2600}
 					height={800}
 				/>
 				<button

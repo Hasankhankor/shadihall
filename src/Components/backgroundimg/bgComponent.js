@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SearchIcon } from '@chakra-ui/icons';
+import "../../app/globals.css"
 import {
   Box,
   Text,
@@ -16,14 +17,14 @@ import {
   PopoverCloseButton,
   Portal, // Import Portal from Chakra UI
 } from "@chakra-ui/react";
-
+import Head from 'next/head';
 import Link from "next/link";
 import DatePicker from "../DatePicker";
 import styles from "./bgComponent.module.css";
 import { GuestContext } from "../../context/GuestContext";
+import { Spacer } from "@nextui-org/spacer";
 
-
-const BgComponent = ({ heading, subHeading }) => {
+const BgComponent = () => {
   const [inputData, setInputData] = useState("");
   const [adult, setAdult] = useState(0);
   const [childrens, setChildrens] = useState(0);
@@ -64,37 +65,19 @@ const BgComponent = ({ heading, subHeading }) => {
 >
   <Box className={styles.bgImg} width="100%" height="110%">
   <Box w={{ base: "100%", md: "80%" }} margin="auto" p={7}>
-      <Box
-        className={styles.textOnImg}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        mb={{ base: -6, md: -10 }}
-      >
-        <Text
-          fontSize={{ base: "20px", md: "40px", lg: "56px" }}
-          fontWeight="bold"
-          textShadow="4px 7px 16px #003580"
-        >
-          Make a 3-minute plan for the wedding.
-        </Text>
-      </Box>
+  <Spacer y={10} />
+  <Box className={styles.textOnImg} display="flex" justifyContent="center" alignItems="center" mb={{ base: -5, md: -8 }}>
+  <Text fontSize={{ base: "10px", md: "40px", lg: "46px" }} fontWeight="bold" textShadow="4px 7px 16px #003580">
+    Make a 3-minute plan for the wedding.
+    <p>Easy Booking, Easy Living</p>
+  </Text>
+</Box>
+      <Spacer y={12} />
 
-      <Box
-        className={styles.textOnImg}
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Text
-          fontSize={{ base: "20px", md: "40px", lg: "56px" }}
-          textShadow="7px 8px 8px #003580"
-        >
-          {subHeading}
-        </Text>
-      </Box>
     </Box>
-          <Box
+
+
+          {/* <Box
   display={{
     base: "block",
     sm: "block",
@@ -172,8 +155,16 @@ const BgComponent = ({ heading, subHeading }) => {
       Search
     </Button>
   </Link>
-</Box>;
+</Box>; */}
+<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
+  <button style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className={styles.glowing_btn}>
+  <span className={styles.glowing_text}>
+    B<span className={styles.faulty_letter}>OO</span>K NOW
+  </span>
+</button>
+</div>
         </Box>
+
       </Box>
   );
 };

@@ -30,7 +30,7 @@ const DownCard = () => {
 	  const fetchData = async () => {
 		const email = localStorage.getItem("email2");
 		try {
-		  const response = await axios.get(`http://192.168.100.16:5000/api/user`);
+		  const response = await axios.get(`http://192.168.18.125:5000/api/user`);
 		  // Handle the response data as needed
 		  // console.log(response.data);
 		} catch (error) {

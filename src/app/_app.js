@@ -1,13 +1,13 @@
 import '../styles/globals.css'
 import { Providers } from './Provider';
+import { ChakraProvider } from '@chakra-ui/react';
 import AuthContextProvider from '../context/AuthContextProvider';
 import Footer from '../components/Footer';
 import React ,{ useState , useEffect } from "react"
-// import LoadingScreen from '../components/pre_loader/loadingScreen';
-// import {ToastContainer} from 'react-nextjs-toast';
+
 import GuestContextProvider from "../context/GuestContext";
 import Script from 'next/script';
-
+import LoadingScreen from '../Components/pre_loader/loadingScreen';
 
 function MyApp({ Component, pageProps }) {
 
@@ -24,22 +24,23 @@ function MyApp({ Component, pageProps }) {
 
 
   return (
-		<>
-			<Script src="https://cdn.tailwindcss.com" />
-			{loading ? (
-				<Providers>
-					<AuthContextProvider>
-						<GuestContextProvider>
-							<Component {...pageProps} />
-							{/* <ToastContainer align={"center"} position={"top"} id="toast-comp-3"/> */}
-							<Footer />
-						</GuestContextProvider>
-					</AuthContextProvider>
-				</Providers>
-			) : (
-			alert("helooo ")
-			)}
-		</>
+<>
+    {loading?
+      (<ChakraProvider>
+      <AuthContextProvider>
+          <GuestContextProvider>
+      <Component {...pageProps} />
+      {/* <ToastContainer align={"center"} position={"top"} id="toast-comp-3"/> */}
+      <Footer />
+        </GuestContextProvider>
+      </AuthContextProvider>
+    </ChakraProvider>):( <LoadingScreen /> )
+    }
+  </>
+
+
+
+
 	);
 }
 

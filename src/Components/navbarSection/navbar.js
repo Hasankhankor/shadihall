@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Icon } from "@chakra-ui/icons";
 import jwt from "jsonwebtoken";
 import { BsFillBalloonHeartFill } from "react-icons/bs";
+import { CiUser } from "react-icons/ci";
 import {
 	IoAirplaneOutline,
 	IoBedOutline,
@@ -27,7 +28,7 @@ import { useContext, useEffect,useState } from "react";
 import { useRouter } from "next/navigation";
 import destination from "../../app/destination";
 import {Spacer} from "@nextui-org/spacer";
-
+import { HiLogin } from "react-icons/hi";
 
 let TSEC = "hello";
 
@@ -62,7 +63,7 @@ export default function Navbar() {
 				w="100%"
 				color="white"
 				height="auto"
-				bg="#003580"
+				bg="#041c4c"
 			>
 				<Box
 					// border="3px solid green"
@@ -75,6 +76,7 @@ export default function Navbar() {
 					<Box display="flex" justifyContent="space-between">
 						<Link href="/">
 							<Box
+
 								// border="2px solid green"
 								className={styles.logosize}
 							>
@@ -83,6 +85,8 @@ export default function Navbar() {
 										color: "white",
 										fontWeight: "bold",
 										fontSize: "36px",
+										transition: "box-shadow 0.2s ease-in-out", // Added transition property
+
 									}}
 								>
 									Shadihall.com
@@ -119,7 +123,7 @@ export default function Navbar() {
 									/>
 								</Link>
 
-								<Link href="/chatscreen">
+								<Link href="/register">
 									{" "}
 									<Button
 										onClick={() => checkToken()}
@@ -185,32 +189,42 @@ export default function Navbar() {
 											<Button
 												style={{
 													backgroundColor: "white",
-													color: "blue",
-													padding: "10px 20px",
-													border: "1px solid blue",
-													borderRadius: "25px",
-													cursor: "pointer",
+      color: "blue",
+      padding: "10px 20px",
+      border: "1px solid blue",
+      borderRadius: "25px",
+      cursor: "pointer",
+      colorScheme: "blue", // Added colorScheme property
+      transition: "box-shadow 0.2s ease-in-out", // Added transition property
+      boxShadow: "0 0 10px 3px rgba(255, 255, 255, 0.5)",
 												}}
 											>
+												<CiUser />
 												Register
 											</Button>
 										</Link>
 
+
 										<Link href="/signin" className={styles.authLink}>
-											<Button
-												style={{
-													backgroundColor: "white",
-													color: "blue",
-													padding: "10px 20px",
-													border: "1px solid blue",
-													borderRadius: "25px",
-													cursor: "pointer",
-												}}
-											>
-												Sign in
-											</Button>
-										</Link>
-									</>
+										<Button
+    style={{
+		backgroundColor: "white",
+		color: "blue",
+		padding: "10px 20px",
+		border: "1px solid blue",
+		borderRadius: "25px",
+		cursor: "pointer",
+		// Added transition property
+		boxShadow: "0 0 10px 3px rgba(255, 255, 255, 0.5)",
+		transitionProperty: "all",
+		transitionDuration: "0.16s",
+		transitionTimingFunction: "ease",
+    }}
+  >
+   <HiLogin />
+    Sign in
+  </Button>
+</Link>							</>
 								)}
 							</HStack>
 						</Box>

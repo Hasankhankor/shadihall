@@ -5,7 +5,7 @@ const Footer = () => {
 	return (
 		<Box pb="2rem" mt={4}>
 			{/* ******************footer Section 1 start******************* */}
-			<Box bg="#00224f" w="100%" p="2rem" color="white">
+			<Box bg="#041c4c" w="100%" p="2rem" color="white">
 				<Box w="60%" m="auto" p={4}>
 					<Text
 						fontSize="3xl"
@@ -45,7 +45,7 @@ const Footer = () => {
 				</Box>
 			</Box>
 			{/* ******************footer Section 1 end******************* */}
-			<Box bg="#003580" w="100%" color="white">
+			<Box bg="#041c4c" w="100%" color="white">
 				<Box p="1rem" m="auto" w="10%" mb="0.5rem">
 					<Button
 						borderRadius="3px"
