@@ -1,15 +1,17 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Optional: Adjust this based on your layout */
-    color: #fff; /* Set text color to white */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #fff;
+  margin-top: -252px; /* Set margin-top to 0 to minimize space */
+  padding-top: 0; /* Set padding-top to 0 if there is any padding */
+}
 
   .wrapper {
-    max-width: 500px;
+    max-width: 900px;
     padding: 1rem;
-    border: 1px solid #b3b5c9; /* Add border */
+    border: 1px solid #08159b; /* Add border */
     background-color: #b3b5c9; /* Add background color */
     color: #fff; /* Set text color to white */
     border-radius: 8px; /* Optional: Adjust border-radius */

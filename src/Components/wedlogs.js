@@ -1,9 +1,12 @@
 // pages/log.js
-
+import { useEffect, useRef,useState } from 'react';
+import  axios  from 'axios';
 import Head from 'next/head';
-import { useEffect, useRef } from 'react';
+
+
 
 const WeddingCard = ({ hallName, date, time, otherDetails }) => {
+
   return (
     <div className="wedding-card">
       <h2>{hallName}</h2>
@@ -15,6 +18,20 @@ const WeddingCard = ({ hallName, date, time, otherDetails }) => {
 };
 
 const LogPage = () => {
+
+  const [BookedData2, setBookedData2] = useState([])
+
+  useEffect(() => {
+   const fetchAPI=async()=>{
+    const res=await axios.get("http://192.168.18.125:5000/api/logshalls")
+    console.log(res.data)
+    setBookedData2(res.data)
+
+   }
+   fetchAPI()
+
+  }, [])
+
   const bookedHalls = [
     {
       hallName: 'Hall 1',
@@ -64,9 +81,17 @@ const LogPage = () => {
   </Head>
   <h1 className="blue-heading">Booked Wedding Halls</h1>
   <div className="wedding-cards-container" ref={containerRef}>
-    {bookedHalls.map((hall, index) => (
-      <WeddingCard key={index} {...hall} />
-    ))}
+    {BookedData2.map((hall) => {
+      return(
+        <div key={hall._id} className="wedding-card">
+        <h2>{hall.hallName}</h2>
+        <p>owner email: {hall.email}</p>
+        <p>price {hall.hallprice}</p>
+        <p>Other Details: {hall.halldescription}</p>
+      </div>
+      )
+    })}
+
   </div>
   <style jsx global>{`
     body {

@@ -17,7 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { Rating, RatingStar } from "flowbite-react";
 import { Spacer } from "@nextui-org/spacer";
-import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import {
 
 
@@ -50,6 +51,9 @@ function useRegister() {
     const [hallLocation, setHallLocation] = useState('');
     const [hallPrice, setHallPrice] = useState('');
 
+
+    const router= useRouter();
+
     const signinReq = async () => {
       try {
         const formData = {
@@ -63,7 +67,7 @@ function useRegister() {
         };
 
         // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
-        const response = await axios.post('http://192.168.18.125:5000/api/user/register', formData);
+        const response = await axios.post('http://192.168.18.125:5000/api/user/halss', formData);
 
         // Handle the response as needed
         console.log('API Response:', response.data);
@@ -73,12 +77,23 @@ function useRegister() {
       } catch (error) {
         // Handle errors
         console.error('API Request Error:', error.message);
+        router.push("/");
       }
     };
 
     const handleImageUpload = (event) => {
       // Implement your image upload logic here
     };
+
+    useEffect(() => {
+      const emailvalid2=localStorage.getItem("email2")
+      if(emailvalid2!=null){
+        router.push("/userpandeditprofile")
+      }else{
+        console.log("user nt rgisterd")
+      }
+    }, [])
+
 	return (
 		<>			<Navbar />
 

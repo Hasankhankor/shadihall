@@ -69,8 +69,9 @@ const BgComponent = () => {
   <Box className={styles.textOnImg} display="flex" justifyContent="center" alignItems="center" mb={{ base: -5, md: -8 }}>
   <Text fontSize={{ base: "10px", md: "40px", lg: "46px" }} fontWeight="bold" textShadow="4px 7px 16px #003580">
     Make a 3-minute plan for the wedding.
-    <p>Easy Booking, Easy Living</p>
+    <h5>Easy Booking, Easy Living</h5>
   </Text>
+
 </Box>
       <Spacer y={12} />
 

@@ -1,12 +1,51 @@
 // components/WeddingHall.js
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import Navbar from "../../../Components/navbarSection/navbar";
 import {Spacer} from "@nextui-org/spacer";
-import { Flex } from '@chakra-ui/react';
+import { Flex,Button } from '@chakra-ui/react';
 import styles from "./WeddingHall.module.css";
+import  axios  from 'axios';
+import { useRouter } from 'next/navigation';
+import {  Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@chakra-ui/react";
+import Navbarr from "@/Components/navbarSection/navbar";
+import DownCard from "@/Components/downcard";
 
 const WeddingHall = ({ hallDetails = {} }) => {
+  const router=useRouter();
+  const [ownername, setownername] = useState("")
+  const [hallname, sethallname] = useState("")
+  const [halllocation, sethalllocation] = useState("")
+  const [hallprice, sethallprice] = useState("")
+  const [halldescription, sethalldescription] = useState("")
+
+  useEffect(() => {
+    const cardId=localStorage.getItem("cardId")
+    const fetchAPi=async()=>{
+      const res=await axios.get(`http://192.168.18.125:5000/api/halls?id=${cardId}`)
+      console.log(res.data)
+      setownername(res.data.email)
+      sethallname(res.data.hallname)
+      sethalllocation(res.data.halllocation)
+      sethalldescription(res.data.halldescription)
+      sethallprice(res.data.hallprice)
+    }
+    fetchAPi()
+
+
+  }, [])
+
+  const sendData=async()=>{
+    const response=axios.post('http://192.168.18.125:5000/api/user/logshall',{
+      email: ownername,
+  hallname:hallname,
+  halllocation:halllocation,
+  halldescription:halldescription
+    })
+    console.log(response)
+
+  }
+
   const { name = 'Unknown Hall', capacity = 'N/A', location = 'N/A', imageSrc = '' } = hallDetails;
   const renderText = (textArray) => {
     return textArray.map((text, index) => (
@@ -16,87 +55,173 @@ const WeddingHall = ({ hallDetails = {} }) => {
        ));
       };
       const venueData = {
-        venueType: "Marquee/Banquet",
+        venueType: hallname,
+        halllocation:halllocation,
+        ownername:ownername,
+        hallprice:hallprice,
         // amenities: ["Yes"],
         parkingSpace: "500",
         catering: "Internal",
         wheelchairAccessible: true,
         // staff: ["Male", "Female"],
-        description: [
-          // "White Rose Marquee, an elegant vintage themed event space and your",
-          // "ideal location for weddings, engagement parties, corporate events, bridal",
-          // "and baby showers, anniversaries, birthday parties and more."
-        ],
+        description: halldescription,
         // additionalInformation: "100% payment is required 10 days before the event",
       };
+      const { isOpen, onOpen, onClose } = useDisclosure();
+      const [modalText, setModalText] = useState("Your description goes here");
 
+      const handleButtonClick = () => {
+        onOpen();
+      };
+
+      const handleConfirm = () => {
+        // Add your logic for handling the "Confirm" button click here
+        onClose();
+      };
+
+      const handleCancel = () => {
+        // Add your logic for handling the "Cancel" button click here
+        onClose();
+      };
 
   return (
     <>
 
 
-    {/* <Navbar/> */}
+<Navbarr />
 
-    <Spacer y={2} />
-<div></div>
-<div className="wedding-hall-container">
-      <Spacer x={2} />
-      <div className="hall-details">
-        <div className="div-profile">
-          <Spacer y={2} />
-          <button className="div-wrapper">
-            <div className="div" style={{ color: 'blue', fontSize: '16px', fontWeight: 'bold' }}>Pricing</div>
-          </button>
-          <Spacer y={2} />
-          <button className="button-2">
-            <div className="text-wrapper-2" style={{ fontSize: '18px', fontWeight: 'italic' }}>Location</div>
-          </button>
-          <Spacer y={2} />
-          <button className="button-3">
-            <div className="text-wrapper-3" style={{ fontSize: '20px', textDecoration: 'underline' }}>Reviews</div>
-          </button>
-        </div>
-        <Spacer y={5} />
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-          <div className='div' style={{ flex: 1 }}>
-            <div style={{ flex: 1, justifyContent: 'center' }}>
-              <div className="hall-image" style={{ width: '400px', height: '400px', borderRadius: '20px', overflow: 'hidden', display: 'flex', marginLeft: '710px' }}>
-                <img
-                  src={"https://image-tc.galaxy.tf/wijpeg-5h8z45mlagjtfm1n4jsszvcqe/whatsapp-image-2021-01-25-at-3.jpg?width=1600&height=1066"}
-                  alt={name}
-                  style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'cover' }}
-                />
-              </div>
+    <Spacer y={10} />
 
-              <div className="heading-details" style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' }}>Details</div>
-
-              <img className="venue-type-svg" alt="Venue type svg" src="https://thumbs.dreamstime.com/b/location-pin-icon-165980583.jpg" />
-              <div style={{ alignItems: 'center' }}>
-                <div className="heading-venue-type" style={{ marginRight: '8px', fontSize: '10px' }}>VENUE TYPE</div>
-                <div className="text-wrapper">{venueData.venueType}</div>
-              </div>
-              <img className="amenities-svg" alt="Amenities svg" src="https://img.freepik.com/premium-vector/amenities-icon-simple-element-illustration-amenities-concept-symbol-design-can-be-used-web-mobile_159242-7844.jpg?w=2000" />
-              <div className="heading-amenities" style={{ marginRight: '8px', fontSize: '16px' }}>AMENITIES</div>
-              <div className="text-wrapper-5">{venueData.amenities}</div>
-              <img className="parking-space-svg" alt="Parking space svg" src="https://t4.ftcdn.net/jpg/01/92/38/33/360_F_192383331_4RSRvuUk5OQ0Td04bRGkGw1VJ4PO9lW3.jpg" />
-              <div className="heading-parking" style={{ marginRight: '8px', fontSize: '16px' }}>PARKING SPACE</div>
-              <div className="text-wrapper-5">{venueData.parkingSpace}</div>
-              {/* Continue with the rest of your code */}
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="wedding-hall-container" style={{ display: 'flex', justifyContent: 'space-between' }}>
+  <div className="hall-details" style={{ width: '80%' }}>
+    <Spacer x={8} />
+    <div className="div-profile">
+      <Spacer y={2} />
+      <button className="div-wrapper">
+        <div className="div" style={{ color: 'blue', fontSize: '16px', fontWeight: 'bold' }}>Pricing</div>
+      </button>
+      <Spacer y={2} />
+      <button className="button-2">
+        <div className="text-wrapper-2" style={{ fontSize: '18px', fontWeight: 'italic' }}>Location</div>
+      </button>
+      <Spacer y={2} />
+      <button className="button-3">
+        <div className="text-wrapper-3" style={{ fontSize: '20px', textDecoration: 'underline' }}>Reviews</div>
+      </button>
     </div>
 
-      <Spacer y={5} />
+    <Spacer y={8} />
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' }}>Details</div>
+        <div style={{ maxWidth: '800px', textAlign: 'center' }}>
 
 
-<Spacer y={5} />
-<div>
+    <div style={{ marginBottom: '20px' }}>
+      <img style={{ width: '50px', height: '50px', marginBottom: '8px' }} alt="Venue type svg" src="https://thumbs.dreamstime.com/b/location-pin-icon-165980583.jpg" />
+      <div style={{ fontSize: '10px' }}>VENUE TYPE</div>
+      <div>{venueData.venueType}</div>
+    </div>
+
+    <div style={{ marginBottom: '20px' }}>
+      <img style={{ width: '50px', height: '50px', marginBottom: '8px' }} alt="Amenities svg" src="https://img.freepik.com/premium-vector/amenities-icon-simple-element-illustration-amenities-concept-symbol-design-can-be-used-web-mobile_159242-7844.jpg?w=2000" />
+      <div style={{ fontSize: '16px' }}>AMENITIES</div>
+      <div>{venueData.amenities}</div>
+
+    </div>
+
+
+</div>
+
+      </div>
+    </div>
+  </div>
+  <div  style={{ maxWidth: '400px', textAlign: 'center', margin: '120px auto' }}>
+  <div className="container" style={{ marginBottom: '8px' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Location</div>
+    <div className="text-wrapper-5">{venueData.halllocation}</div>
+  </div>
+
+  <div className="container" style={{ marginBottom: '8px' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Owner Name</div>
+    <div className="text-wrapper-5">{venueData.ownername}</div>
+  </div>
+
+  <div className="container" style={{ marginBottom: '8px' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Description</div>
+
+    <div className="text-wrapper-5">{venueData.description}</div>
+    <div>
         <h2>{name}</h2>
         <p>Capacity: {capacity}</p>
         <p>Location: {location}</p>
       </div>
+  </div>
+</div>
+  <div style={{ width: '50%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      {/* Hero Image */}
+      <img
+        style={{ width: '250%', maxWidth: '600px', height: 'auto', marginBottom: '20px' }}
+        alt="Hero Image"
+        src="https://scontent.fisb17-1.fna.fbcdn.net/v/t1.6435-9/149258122_3750934858288259_5596410844992058676_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7f8c78&_nc_eui2=AeHGGK_4GKCfmZhPsyK70bLKj7VJMCWQcOqPtUkwJZBw6t6AWhW9RelyYQKzhOSpP-lOmrHvlOThYJPteDKV8AVk&_nc_ohc=_cn-52vcLQ4AX87iaPw&_nc_ht=scontent.fisb17-1.fna&oh=00_AfBRWttz0pml2DaZNNiVaCt6O8cnrqslwL9cOTmVnUJfsg&oe=65C34A4B"
+      />
+
+      {/* Your existing code for the submit button */}
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
+      <div>
+      <Button
+        color={"blue"}
+        variant="solid"
+        colorScheme="blue"
+        _hover={{
+          bg: "blue.500",
+          color: "white",
+          boxShadow: "0 0 10px rgba(0, 0, 255, 0.8)",
+          borderRadius: "8px",
+        }}
+        onClick={handleButtonClick}
+      >
+        Book Now
+      </Button>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Booking Success</ModalHeader>
+          <ModalBody>
+            <p>Are you absolutely certain that this magnificent and enchanting wedding hall, with its exquisite ambiance and breathtaking surroundings, has been unequivocally reserved exclusively for your joyous celebration</p>
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" mr={3} onClick={()=>{
+              sendData()
+              handleConfirm()
+            }}>
+              Confirm
+            </Button>
+            <Button variant="ghost" onClick={handleCancel}>
+              Cancel
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <Spacer y={5} />
+      <h2 style={{ textAlign: 'center', color: 'darkblue', fontWeight: 'bold' }}>Explore More Halls Around You.</h2>
+
+
+
+<Spacer y={5} />
+<DownCard />
+
 
 
 

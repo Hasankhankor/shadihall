@@ -4,38 +4,47 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
+
+
 import Navbar from "../../Components/navbarSection/navbar";
 import SearchBox from "../../Components/serachBox/searchBox";
 
-const socket = io("http://192.168.100.16:5000");
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const socket = io("http://192.168.18.125:5000");
 const adminUsername = 'Hasan';
 function App() {
-    const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+  const [messageInput, setMessageInput] = useState('');
     const [chatInfo, setChatInfo] = useState({ adminPhoto: '', adminUsername: '' }); // Initialize chatInfo with default values
 
-  useEffect(() => {
-    // Listen for incoming messages
-    socket.on('message', (data) => {
-      setMessages((prevMessages) => [...prevMessages, data]);
-      // console.log('newMessage:', newMessage);
+    useEffect(() => {
+      // Listen for incoming messages
+      socket.on('message', (data) => {
+        setMessages((prevMessages) => [...prevMessages, data]);
+        console.log(data)
+      });
 
-    });
+      // Clean up the socket connection when the component unmounts
+      return () => {
+        socket.disconnect();
+      };
+    }, []);
+
+    const sendMessage = () => {
+      if (messageInput.trim() !== '') {
+        // Send the message to the server
+        socket.emit('message', { text: messageInput });
 
 
-    return () => {
-      socket.disconnect();
+        // Clear the input field
+        setMessageInput('');
+      }
     };
-  }, []);
-
-  const handleSendMessage = () => {
-    if (newMessage.trim() !== '') {
-
-      socket.emit('message', { text: newMessage });
-      console.log(newMessage)
-      setMessages(newMessage)
-    }
-  };
 
   return (
     <>
@@ -50,7 +59,7 @@ function App() {
           <h1>{chatInfo.adminUsername}</h1>
 
           <div>
-            {/* {messages.map((message, index) => (
+            {messages.map((message, index) => (
               <div
                 key={index}
                 style={{
@@ -62,28 +71,28 @@ function App() {
                 }}
               >
 
-                {message.sender && (
+                {/* {message.sender && (
                   <>
                     <img src={message.sender.photo} alt="User Photo" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
                     <span>{message.sender.username}:</span>
                   </>
-                )}
-                {message.text}
+                )} */}
+                <p>{message.text}</p>
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
         <div style={{ padding: '20px', borderTop: '1px solid #ccc' }}>
           <input
             type="text"
             placeholder="Type your message..."
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
+            value={messageInput}
+            onChange={(e) => setMessageInput(e.target.value)}
             style={{ width: '70%', padding: '10px', marginRight: '10px' }}
           />
           <button
             onClick={()=>{
-              handleSendMessage()
+            sendMessage()
             }}
             style={{
               padding: '10px',

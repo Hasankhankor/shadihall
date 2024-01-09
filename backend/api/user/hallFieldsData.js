@@ -1,5 +1,5 @@
 const connectDB = require('../../db');
-const UserModel = require('../../model/userModel');
+const UserModel = require('../../model/hallmodel');
 const bcrypt = require('bcryptjs');
 const express = require('express');
 const { MongoClient } = require('mongodb');
@@ -12,12 +12,12 @@ const client = new MongoClient(uri);
 
 router.use(express.json());
 
-router.post('/register', async (req, res) => {
+router.post('/halls', async (req, res) => {
   try {
     await client.connect();
 
-    const { email, password,fullname,profilepicture } = req.body;
-    console.log('Received request with data:', { email, password,fullname,profilepicture});
+    const { email, password,hallname,halllocation,hallpicture,halldescription,hallprice } = req.body;
+    console.log('Received request with data:', { email, password,hallname,halllocation,hallpicture,halldescription,hallprice});
     // Check if user already exists
     const existingUser = await UserModel.findOne({ email });
     if (existingUser) {
@@ -32,8 +32,11 @@ router.post('/register', async (req, res) => {
     const newUser = new UserModel({
       email: email,
       password: hashedPassword,
-      fullname:fullname,
-      profilepicture:profilepicture,
+      hallname:hallname,
+      halllocation:halllocation,
+      hallpicture:hallpicture,
+      halldescription:halldescription,
+      hallprice:hallprice
 
     });
 
@@ -44,12 +47,16 @@ console.log('Saved user:', savedUser);
 
 
     // Insert the new user into the 'User' collection
-    const collection = client.db().collection('User');
+    const collection = client.db().collection('hallsData');
     const result = await collection.insertOne({
       email: savedUser.email,
       password: savedUser.password,
-      fullname:fullname,
-      profilepicture:profilepicture,
+      hallname:savedUser.hallname,
+      halllocation:savedUser.halllocation,
+      hallpicture:savedUser.hallpicture,
+      halldescription:savedUser.halldescription,
+      hallprice:savedUser.hallprice
+
 
 
     });

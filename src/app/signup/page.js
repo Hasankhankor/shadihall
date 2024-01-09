@@ -68,7 +68,7 @@ const Signup = () => {
           />
         </Box>
 
-        {/* Right side form */}
+
         <VStack w="90%" m="auto" mt="50px">
           <Heading
             mb="24px"
@@ -102,18 +102,20 @@ const Signup = () => {
                 type="password"
                 placeholder="Password"
               />
-              <Input
-                onClick={() => signupReq()}
-                mb="15px"
-                fontSize="14px"
-                color="white"
-                type="submit"
-                cursor="pointer"
-                value="Sign Up"
-                bg="#003B95"
-                fontWeight="500"
-                _hover={{ bg: "#265cad" }}
-              />
+              <Link to="/sigin">
+  <Input
+    onClick={() => signupReq()}
+    mb="15px"
+    fontSize="14px"
+    color="blue "
+    type="submit"
+    cursor="pointer"
+    value="Sign Up"
+    bg="#003B95"
+    fontWeight="500"
+    _hover={{ bg: "#265cad" }}
+  />
+</Link>
             </FormControl>
 
             <Text mb="16px !important" textAlign="center">
@@ -133,14 +135,14 @@ const Signup = () => {
               </Text>
 
               <Flex gap="10px">
-                {/* ... rest of your social login links ... */}
+
               </Flex>
             </Box>
 
             <Text mb="16px !important">
               Already have an account?{" "}
               <Link
-                href="/signin"  // Adjust the path based on your file structure
+                href="/signin"
                 textDecoration="underline"
                 fontWeight="bold"
                 color="blackAlpha.800"

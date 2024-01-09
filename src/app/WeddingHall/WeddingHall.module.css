@@ -550,3 +550,33 @@
     top: 630px;
     width: 1856px;
 }
+.hall-details {
+    box-sizing: border-box;
+  }
+
+  .div-profile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap as needed */
+  }
+
+  .div-wrapper,
+  .button-2,
+  .button-3 {
+    width: 100%;
+  }
+
+  .div-wrapper,
+  .button-2,
+  .button-3 a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .div-wrapper:hover,
+  .button-2:hover,
+  .button-3:hover {
+    background-color: #f0f0f0; /* Add your desired hover background color */
+  }

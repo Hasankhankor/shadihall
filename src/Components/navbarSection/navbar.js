@@ -181,7 +181,10 @@ export default function Navbar() {
 										>
 											Sign out
 										</Button>
+										<Link href="/https://media.licdn.com/dms/image/C5603AQEWnIQjBVEhTw/profile-displayphoto-shrink_800_800/0/1660120166321?e=2147483647&v=beta&t=Gk9iAoxN4XLK8hJWa0o-DSkbWbgwr8Mk5sIBHg3TPWg">
 										<Avatar bg="yellow.400" />
+										</Link>
+
 									</>
 								) : (
 									<>

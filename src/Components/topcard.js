@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from "next/link";
+import axios from "axios";
 
 import {
 	Box,
@@ -25,6 +26,20 @@ const cardHoverStyle = {
 	},
 };
 const topcard = () => {
+	const [hallData, sethallData] = useState([])
+
+	useEffect(() => {
+		const FetchAPI=async()=>{
+			const response= await axios.get("http://192.168.18.125:5000/api/user/halls")
+			console.log(response.data)
+			sethallData(response.data)
+
+		}
+		FetchAPI()
+
+	}, [])
+
+
   return (
     <div>
       <>
@@ -34,7 +49,9 @@ const topcard = () => {
       alignItems="center"
       flexWrap="wrap" // Allow items to wrap on smaller screens
     >
-      <Card   maxW="sm" mr="4" sx={cardHoverStyle}>
+		{hallData.map((item)=>{
+			return(
+				<Card key={item._id}   maxW="sm" mr="4" sx={cardHoverStyle}>
       <CardBody>
         <Image
           src="https://image-tc.galaxy.tf/wijpeg-5h8z45mlagjtfm1n4jsszvcqe/whatsapp-image-2021-01-25-at-3.jpg?width=1600&height=1066"
@@ -42,14 +59,12 @@ const topcard = () => {
           borderRadius="lg"
         />
         <Stack mt="6" spacing="3">
-          <Heading size="md">ISLAMABAD SERENA HOTEL WEDDING VENUE</Heading>
+          <Heading size="md">{item.hallname}</Heading>
           <Text>
-            The 5-star Islamabad Serena Hotel is Islamabads most sophisticated
-            address for an unforgettable wedding celebration. Your guests will be
-            enchanted by our meticulously landscaped gardens and Islamic architecture.
+           {item.halldescription}
           </Text>
           <Text color="blue.600" fontSize="2xl">
-            PKR - 45550
+            {item.hallprice}
           </Text>
         </Stack>
         <Rating style={{ display: "flex", alignItems: "center" }}>
@@ -72,6 +87,9 @@ const topcard = () => {
             colorScheme="blue"
             alignItems="center"
             _hover={{ bg: "blue.500", color: "white" }}
+			onClick={()=>{
+				localStorage.setItem("cardId",item._id)
+			}}
           >
             <Link href="/WeddingHall" style={{ color: "inherit", textDecoration: "inherit" }}>
               Book Now
@@ -83,7 +101,11 @@ const topcard = () => {
         </ButtonGroup>
       </CardFooter>
     </Card>
-				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
+
+			)
+		})}
+
+				{/* <Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
 							src="https://cdn0.weddingwire.in/vendor/8084/3_2/960/jpg/11811381-730712030366497-1932142983309670430-n_15_8084.jpeg"
@@ -236,7 +258,7 @@ const topcard = () => {
 							</Button>
 						</ButtonGroup>
 					</CardFooter>
-				</Card>
+				</Card> */}
 			</Flex>
       </>
     </div>
