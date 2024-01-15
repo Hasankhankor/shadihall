@@ -25,29 +25,33 @@ const cardHoverStyle = {
 		transform: "scale(1.19)",
 	},
 };
-const topcard = () => {
+const Topcard = () => {
 	const [hallData, sethallData] = useState([])
 
 	useEffect(() => {
-		const FetchAPI=async()=>{
-			const response= await axios.get("http://192.168.18.125:5000/api/user/halls")
-			console.log(response.data)
-			sethallData(response.data)
+		const fetchAPI = async () => {
+		  try {
+			const response = await axios.get("http://192.168.18.125:5000/api/user/halls");
+			console.log(response.data);
+			sethallData(response.data);
+		  } catch (error) {
+			console.error('Error fetching data from API:', error.message);
 
-		}
-		FetchAPI()
+		  }
+		};
 
-	}, [])
+		fetchAPI();
+	  }, []);
 
 
   return (
     <div>
       <>
       <Flex
-      direction={{ base: "column", md: "row" }} // Column on small screens, row on medium and larger screens
+      direction={{ base: "column", md: "row" }}
       justifyContent="center"
       alignItems="center"
-      flexWrap="wrap" // Allow items to wrap on smaller screens
+      flexWrap="wrap"
     >
 		{hallData.map((item)=>{
 			return(
@@ -265,4 +269,4 @@ const topcard = () => {
   )
 }
 
-export default topcard
+export default Topcard

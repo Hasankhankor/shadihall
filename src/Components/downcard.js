@@ -100,6 +100,7 @@ const DownCard = () => {
         </ButtonGroup>
       </CardFooter>
     </Card>
+
 				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
@@ -254,8 +255,10 @@ const DownCard = () => {
 						</ButtonGroup>
 					</CardFooter>
 				</Card>
+
 			</Flex>
       </>
+
     </div>
   )
 }

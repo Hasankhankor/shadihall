@@ -13,11 +13,11 @@ import {
   Heading,
   Flex,
 } from "@chakra-ui/react";
-
+import { Button } from '@chakra-ui/react';
 import { useState, useContext } from "react";
 import { useRouter } from 'next/navigation';
 import { AuthContext } from "../../context/AuthContextProvider";
-
+import {  Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@chakra-ui/react";
 const Signup = () => {
   const router = useRouter();
   const authContext = useContext(AuthContext);
@@ -25,6 +25,23 @@ const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fullname, setfullname] = useState("")
+  const { isOpen, onOpen, onClose } = useDisclosure();
+      const [modalText, setModalText] = useState("Your description goes here");
+
+      const handleButtonClick = () => {
+        onOpen();
+      };
+
+      const handleConfirm = () => {
+        // Add your logic for handling the "Confirm" button click here
+        onClose();
+      };
+
+      const handleCancel = () => {
+        // Add your logic for handling the "Cancel" button click here
+        onClose();
+      };
 
   const reset = () => {
     setEmail("");
@@ -33,9 +50,10 @@ const Signup = () => {
 
   const signupReq = async () => {
     try {
-      const res = await axios.post("http://192.168.18.125:5000/api/user/signup", {
+      const res = await axios.post("http://192.168.18.125:5000/api/user/register", {
         email: email,
         password: password,
+        fullname: fullname
       });
 
       console.log(res.data);
@@ -93,6 +111,16 @@ const Signup = () => {
                 placeholder=" Email Address"
               />
               <FormLabel color="blackAlpha.800" fontSize="14px">
+                fullname
+              </FormLabel>
+              <Input
+                onChange={({ target }) => setfullname(target.value)}
+                value={fullname}
+                mb="15px"
+                type="text"
+                placeholder=" Full Name "
+              />
+              <FormLabel color="blackAlpha.800" fontSize="14px">
                 Password
               </FormLabel>
               <Input
@@ -103,18 +131,40 @@ const Signup = () => {
                 placeholder="Password"
               />
               <Link to="/sigin">
-  <Input
-    onClick={() => signupReq()}
-    mb="15px"
-    fontSize="14px"
-    color="blue "
-    type="submit"
-    cursor="pointer"
-    value="Sign Up"
-    bg="#003B95"
-    fontWeight="500"
-    _hover={{ bg: "#265cad" }}
-  />
+              <div>
+      <FormControl>
+        <Button
+          onClick={() => {
+            onOpen(); // Open the modal when the button is clicked
+            signupReq(); // Simulate sign-in
+          }}
+          mb="15px"
+          fontSize="14px"
+          color="white"
+          cursor="pointer"
+          bg="#003B95"
+          fontWeight="500"
+          _hover={{ bg: "#265cad" }}
+        >
+          Continue with email
+        </Button>
+      </FormControl>
+
+      {/* Modal component */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Welcome!</ModalHeader>
+          <ModalBody>
+            <p>
+              😊 Your account has been created successfully.
+              <br />
+              You are now signed in. Redirecting to home...
+            </p>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </div>
 </Link>
             </FormControl>
 

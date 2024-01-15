@@ -16,22 +16,20 @@ router.post('/logshalls', async (req, res) => {
   try {
     await client.connect();
 
-    const { email, password,hallname,halllocation,hallpicture,halldescription,hallprice } = req.body;
-    console.log('Received request with data:', { email, password,hallname,halllocation,hallpicture,halldescription,hallprice});
+    const { id,hallname,halllocation,halldescription,hallprice } = req.body;
+    console.log('Received request with data:', {hallname,halllocation,halldescription,hallprice});
     // Check if user already exists
 
 
     // Hash the password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+const id2= Math.random()
 
 
     const newUser = new UserModel({
-      email: email,
-      password: hashedPassword,
+      id:id2,
       hallname:hallname,
       halllocation:halllocation,
-      hallpicture:hallpicture,
+
       halldescription:halldescription,
       hallprice:hallprice
 
@@ -39,26 +37,23 @@ router.post('/logshalls', async (req, res) => {
 
     // Save the new user
   // Save the new user
-const savedUser = await newUser.save();
-console.log('Saved user:', savedUser);
+
 
 
     // Insert the new user into the 'User' collection
     const collection = client.db().collection('halllogs');
     const result = await collection.insertOne({
-      email: savedUser.email,
-      password: savedUser.password,
-      hallname:savedUser.hallname,
-      halllocation:savedUser.halllocation,
-      hallpicture:savedUser.hallpicture,
-      halldescription:savedUser.halldescription,
-      hallprice:savedUser.hallprice
+      hallname:hallname,
+      halllocation:halllocation,
+
+      halldescription:halldescription,
+      hallprice:hallprice
 
 
 
     });
 
-    res.status(201).json({ message: 'User registered successfully', user: savedUser });
+    res.status(201).json({ message: 'User registered successfully', user: result});
   } catch (error) {
     console.error('Error during user registration:', error);
     res.status(500).json({ error: 'Internal Server Error' });

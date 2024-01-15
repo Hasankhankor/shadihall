@@ -157,13 +157,27 @@ const BgComponent = () => {
     </Button>
   </Link>
 </Box>; */}
-<div style={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
-  <button style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className={styles.glowing_btn}>
-  <span className={styles.glowing_text}>
-    B<span className={styles.faulty_letter}>OO</span>K NOW
-  </span>
-</button>
-</div>
+ <div style={{
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: "10px",
+  boxSizing: "border-box",
+  '@media (max-width: 600px)': {
+    padding: "5px",  // Adjust the padding for smaller screens
+  }
+}}>
+      {/* Using the Link component for routing */}
+      <Link href="/Weddinglisthall"passHref={true} legacyBehavior>
+        <a>
+          <button style={{ display: "flex", justifyContent: "center", alignItems: "center" }} className={styles.glowing_btn}>
+            <span className={styles.glowing_text}>
+              B<span className={styles.faulty_letter}>OO</span>K NOW
+            </span>
+          </button>
+        </a>
+      </Link>
+    </div>
         </Box>
 
       </Box>

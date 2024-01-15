@@ -67,7 +67,7 @@ function useRegister() {
         };
 
         // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
-        const response = await axios.post('http://192.168.18.125:5000/api/user/halss', formData);
+        const response = await axios.post('http://192.168.18.125:5000/api/user/halls', formData);
 
         // Handle the response as needed
         console.log('API Response:', response.data);
@@ -86,12 +86,19 @@ function useRegister() {
     };
 
     useEffect(() => {
-      const emailvalid2=localStorage.getItem("email2")
-      if(emailvalid2!=null){
-        router.push("/userpandeditprofile")
-      }else{
-        console.log("user nt rgisterd")
+      const cardId=localStorage.getItem("hallid")
+      const fetchAPI=async()=>{
+        const res=await axios.get(`http://192.168.18.125:5000/api/halls?id=${cardId}`)
+        console.log(res.status)
+        if (res.data!=null) {
+          router.push("/userpandeditprofile")
+
+        } else {
+
+        }
       }
+      fetchAPI()
+
     }, [])
 
 	return (

@@ -32,40 +32,7 @@ const LogPage = () => {
 
   }, [])
 
-  const bookedHalls = [
-    {
-      hallName: 'Hall 1',
-      date: '2024-05-15',
-      time: '3:00 PM',
-      otherDetails: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    },
-    {
-      hallName: 'Hall 2',
-      date: '2024-06-20',
-      time: '5:30 PM',
-      otherDetails: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      hallName: 'Hall 3',
-      date: '2024-07-10',
-      time: '2:00 PM',
-      otherDetails: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-    },
-    {
-        hallName: 'Hall 3',
-        date: '2024-07-10',
-        time: '2:00 PM',
-        otherDetails: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-      },
-      {
-        hallName: 'Hall 3',
-        date: '2024-07-10',
-        time: '2:00 PM',
-        otherDetails: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-      },
 
-    // Add more booked halls as needed
-  ];
 
   const containerRef = useRef(null);
 
@@ -84,10 +51,10 @@ const LogPage = () => {
     {BookedData2.map((hall) => {
       return(
         <div key={hall._id} className="wedding-card">
-        <h2>{hall.hallName}</h2>
-        <p>owner email: {hall.email}</p>
+        <h2>Hall Name {hall.hallname}</h2>
+        {/* <p>owner email: {hall.email}</p> */}
         <p>price {hall.hallprice}</p>
-        <p>Other Details: {hall.halldescription}</p>
+        <p> Details: {hall.halldescription}</p>
       </div>
       )
     })}

@@ -150,15 +150,41 @@ app.put("/api/user",async (req, res) => {
 
 
   const { id } = req.query;
-  const { fullname,email,profilepicture,password} = req.body;
-  console.log(id,fullname,email,profilepicture,password)
+  const { fullname,email} = req.body;
+  console.log(id,fullname,email)
 
 
 
   try {
     const user = await Userupdated.findByIdAndUpdate(
       {_id:id},
-      {fullname:fullname,email:email,profilepicture:profilepicture  },
+      {fullname:fullname,email:email, },
+      { new: true }
+    );
+
+    if (!user) {
+      return res.status(404).json({ success: false, error: 'User not found' });
+    }
+
+    res.status(200).json({ success: true, data: user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Server error' });
+  }
+});
+app.put("/api/user/halls",async (req, res) => {
+
+
+  const { id } = req.query;
+  const { email,hallname,halllocation,halldescription,hallprice} = req.body;
+  console.log(id,email, hallname,halllocation,halldescription,hallprice)
+
+
+
+  try {
+    const user = await Userupdated.findByIdAndUpdate(
+      {_id:id},
+      {email:email, hallname:hallname,halllocation:halllocation,halldescription:halldescription,hallprice:hallprice  },
       { new: true }
     );
 

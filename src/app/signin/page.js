@@ -17,7 +17,16 @@ import {
   import { useState, useContext } from "react";
   import { useRouter } from 'next/navigation';
   import { AuthContext } from "../../context/AuthContextProvider";
-
+  import {
+	Modal,
+	ModalBody,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay
+  } from '@chakra-ui/react';
+  import { useDisclosure } from '@chakra-ui/react';
+  import { Button } from '@chakra-ui/react';
   const Signin = () => {
 	const router = useRouter();
 	const authContext = useContext(AuthContext);
@@ -30,7 +39,22 @@ import {
 	  setEmail("");
 	  setPassword("");
 	};
+	const { isOpen, onOpen, onClose } = useDisclosure();
+	const [modalText, setModalText] = useState("Your description goes here");
 
+	const handleButtonClick = () => {
+	  onOpen();
+	};
+
+	const handleConfirm = () => {
+	  // Add your logic for handling the "Confirm" button click here
+	  onClose();
+	};
+
+	const handleCancel = () => {
+	  // Add your logic for handling the "Cancel" button click here
+	  onClose();
+	};
 	const signinReq = async () => {
 	  try {
 		const res = await axios.post("http://192.168.18.125:5000/api/user/login", {
@@ -44,7 +68,7 @@ import {
 			localStorage.setItem("email",true)
 			localStorage.setItem("email2",email)
 			reset();
-			router.push("/");
+			router.push("/")
 
 		}
 
@@ -109,19 +133,41 @@ import {
 			  type="password"
 			  placeholder="Password"
 			/>
-			<Input
-			  onClick={() => signinReq()}
-			  mb="15px"
-			  fontSize="14px"
-			  color="white"
-			  type="submit"
-			  cursor="pointer"
-			  value="Continue with email"
-			  bg="#003B95"
-			  fontWeight="500"
-			  _hover={{ bg: "#265cad" }}
-			/>
-          </FormControl>
+
+<div>
+      <FormControl>
+        <Button
+          onClick={() => {
+            onOpen(); // Open the modal when the button is clicked
+            signinReq(); // Simulate sign-in
+          }}
+          mb="15px"
+          fontSize="14px"
+          color="white"
+          cursor="pointer"
+          bg="#003B95"
+          fontWeight="500"
+          _hover={{ bg: "#265cad" }}
+        >
+          Continue with email
+        </Button>
+      </FormControl>
+
+      {/* Modal component */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Welcome!</ModalHeader>
+          <ModalBody>
+            <p>
+              😊 Your account has been Sign-In successfully.
+              <br />
+              You are now signed in. Redirecting to home...
+            </p>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </div>
 
           <Text mb="16px !important" textAlign="center">
             By signing in or creating an account, you agree with our{" "}
@@ -161,7 +207,9 @@ import {
             mb="16px !important"
             textAlign="center"
           ></Text>
+		  </FormControl>
         </VStack>
+
       </VStack>
     </Flex>
 	</Box>

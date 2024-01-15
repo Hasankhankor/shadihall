@@ -15,6 +15,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@heroicons/react": "^1.0.6",
     "@mui/icons-material": "^5.15.3",
     "@nextui-org/react": "^2.2.9",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -43,14 +44,16 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-router-dom": "^6.21.2",
     "react-simple-image-slider": "^2.4.1",
     "react-slideshow-image": "^4.1.1",
     "rsuite": "^5.23.2",
-    "socket.io-client": "^4.7.2",
+    "socket.io-client": "^4.7.3",
     "swiper": "^11.0.5",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.5",
+    "webpack": "^5.89.0"
   }
 }

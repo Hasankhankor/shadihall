@@ -36,11 +36,12 @@ const WeddingHall = ({ hallDetails = {} }) => {
   }, [])
 
   const sendData=async()=>{
-    const response=axios.post('http://192.168.18.125:5000/api/user/logshall',{
-      email: ownername,
+    const response=axios.post('http://192.168.18.125:5000/api/user/logshalls',{
+
   hallname:hallname,
   halllocation:halllocation,
-  halldescription:halldescription
+  halldescription:halldescription,
+  hallprice:hallprice
     })
     console.log(response)
 
@@ -65,7 +66,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
         wheelchairAccessible: true,
         // staff: ["Male", "Female"],
         description: halldescription,
-        // additionalInformation: "100% payment is required 10 days before the event",
+
       };
       const { isOpen, onOpen, onClose } = useDisclosure();
       const [modalText, setModalText] = useState("Your description goes here");
@@ -75,12 +76,12 @@ const WeddingHall = ({ hallDetails = {} }) => {
       };
 
       const handleConfirm = () => {
-        // Add your logic for handling the "Confirm" button click here
+
         onClose();
       };
 
       const handleCancel = () => {
-        // Add your logic for handling the "Cancel" button click here
+
         onClose();
       };
 
@@ -111,9 +112,9 @@ const WeddingHall = ({ hallDetails = {} }) => {
     </div>
 
     <Spacer y={8} />
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <div style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '10px' }}>Details</div>
         <div style={{ maxWidth: '800px', textAlign: 'center' }}>
 
@@ -130,35 +131,35 @@ const WeddingHall = ({ hallDetails = {} }) => {
       <div>{venueData.amenities}</div>
 
     </div>
-
-
 </div>
-
       </div>
     </div>
   </div>
-  <div  style={{ maxWidth: '400px', textAlign: 'center', margin: '120px auto' }}>
-  <div className="container" style={{ marginBottom: '8px' }}>
+
+  <div className="wedding-hall" style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', margin: '120px auto' }}>
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
     <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Location</div>
     <div className="text-wrapper-5">{venueData.halllocation}</div>
   </div>
-
-  <div className="container" style={{ marginBottom: '8px' }}>
+  <Spacer x={5} />
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
     <div className="heading-parking" style={{ fontSize: '16px' }}>Owner Name</div>
     <div className="text-wrapper-5">{venueData.ownername}</div>
   </div>
-
-  <div className="container" style={{ marginBottom: '8px' }}>
+  <Spacer x={5} />
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
     <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Description</div>
-
     <div className="text-wrapper-5">{venueData.description}</div>
+    <Spacer x={5} />
     <div>
-        <h2>{name}</h2>
-        <p>Capacity: {capacity}</p>
-        <p>Location: {location}</p>
-      </div>
+      <h2>{name}</h2>
+      <p>Capacity: {capacity}</p>
+      <p>Location: {location}</p>
+    </div>
   </div>
 </div>
+
+
   <div style={{ width: '50%' }}>
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {/* Hero Image */}
@@ -168,7 +169,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
         src="https://scontent.fisb17-1.fna.fbcdn.net/v/t1.6435-9/149258122_3750934858288259_5596410844992058676_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7f8c78&_nc_eui2=AeHGGK_4GKCfmZhPsyK70bLKj7VJMCWQcOqPtUkwJZBw6t6AWhW9RelyYQKzhOSpP-lOmrHvlOThYJPteDKV8AVk&_nc_ohc=_cn-52vcLQ4AX87iaPw&_nc_ht=scontent.fisb17-1.fna&oh=00_AfBRWttz0pml2DaZNNiVaCt6O8cnrqslwL9cOTmVnUJfsg&oe=65C34A4B"
       />
 
-      {/* Your existing code for the submit button */}
+
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
       <div>
       <Button
@@ -207,7 +208,6 @@ const WeddingHall = ({ hallDetails = {} }) => {
         </ModalContent>
       </Modal>
     </div>
-
       </div>
     </div>
   </div>

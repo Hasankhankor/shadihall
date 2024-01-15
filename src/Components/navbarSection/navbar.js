@@ -4,6 +4,8 @@ import { Icon } from "@chakra-ui/icons";
 import jwt from "jsonwebtoken";
 import { BsFillBalloonHeartFill } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
+import { FaRocketchat } from "react-icons/fa6";
+
 import {
 	IoAirplaneOutline,
 	IoBedOutline,
@@ -41,7 +43,8 @@ export default function Navbar() {
 
 	const SignoutReq = () => {
 	 localStorage.removeItem("email")
-	  router.push("/");
+	//   router.push("/");
+	window.location.reload();
 	};
 
 	const checkToken = () => {
@@ -181,9 +184,17 @@ export default function Navbar() {
 										>
 											Sign out
 										</Button>
-										<Link href="/https://media.licdn.com/dms/image/C5603AQEWnIQjBVEhTw/profile-displayphoto-shrink_800_800/0/1660120166321?e=2147483647&v=beta&t=Gk9iAoxN4XLK8hJWa0o-DSkbWbgwr8Mk5sIBHg3TPWg">
+
+										<Link href="/userpandeditprofile">
 										<Avatar bg="yellow.400" />
+
+										<Link href="/chatscreen">
+  <Avatar alt="Remy Sharp" src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png" />
+</Link>
+
 										</Link>
+
+
 
 									</>
 								) : (

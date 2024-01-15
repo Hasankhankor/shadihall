@@ -50,6 +50,7 @@ function Stay() {
 		<div>
 
     <>
+
       <Navbarr />
       <Script src="https://cdn.tailwindcss.com" />
       <BgComponent heading="" subHeading="Easy Booking, Easy Living" />
@@ -127,7 +128,7 @@ function Stay() {
       <LogPage />
       <Testimonials />
       <Spacer y={20} />
-      <SwiperComponent />
+
 
       <Footer />
 

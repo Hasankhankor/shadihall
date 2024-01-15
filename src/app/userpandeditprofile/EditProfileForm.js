@@ -15,16 +15,20 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
   const [halllocation, sethalllocation] = useState("")
   const [hallrice, sethallrice] = useState("")
   const [hallvalid, sethallvalid] = useState(false)
+  const [password, setpassword] = useState("")
+  const [hallpicture, sethallpicture] = useState("")
 
   useEffect(() => {
     const localemail=localStorage.getItem('email2')
     const fetchApi=async()=>{
-        const hallresponse= await axios.get(`http://192.168.100.6:5000/api/halls/${localemail}`)
+        const hallresponse= await axios.get(`http://192.168.18.125:5000/api/halls/${localemail}`)
       console.log(hallresponse.data)
       sethallname(hallresponse.data.hallname)
+      setpassword(hallresponse.data.password)
       sethalldescription(hallresponse.data.halldescription)
       sethalllocation(hallresponse.data.halllocation)
       sethallrice(hallresponse.data.hallprice)
+      sethallpicture(hallresponse.data.hallpicture)
       if(hallresponse.data!=null){
         sethallvalid(true)
 
@@ -37,13 +41,26 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
   }, [])
 
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setEditedUser((prevUser) => ({
-//       ...prevUser,
-//       [name]: value,
-//     }));
-//   };
+  const handleSaveClick2 = async() => {
+    const id2=localStorage.getItem("hallid")
+  try {
+    const response=axios.put(`http://192.168.18.125:5000/api/user/halls?id=${id2}`,{
+      email:editedemail,
+
+      hallname:hallname,
+      halllocation:halllocation,
+
+      halldescription:halldescription,
+      hallprice:hallrice
+    })
+    console.log(response.data)
+    alert("Updated Succesfully")
+    localStorage.setItem("email2",editedemail)
+  } catch (error) {
+    alert(error)
+
+  }
+}
 
 
   const handleSaveClick = async() => {
@@ -52,7 +69,7 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
     const response=axios.put(`http://192.168.18.125:5000/api/user?id=${id}`,{
         fullname:editedname,
         email:editedemail,
-        profilepicture:editpicture
+
     })
     console.log(response.data)
     alert("Updated Succesfully")
@@ -61,6 +78,8 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
     alert(error)
 
  }
+
+
 
 
 
@@ -132,7 +151,10 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
 
 
           <Form.Item className={styles.formGrp}>
-            <Button type="primary" onClick={handleSaveClick}>Update Profile</Button>
+            <Button type="primary" onClick={()=>{
+              handleSaveClick()
+              handleSaveClick2()
+            }}>Update Profile</Button>
           </Form.Item>
         </Form>
       </div>
