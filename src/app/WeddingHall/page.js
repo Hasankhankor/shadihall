@@ -22,7 +22,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
   useEffect(() => {
     const cardId=localStorage.getItem("cardId")
     const fetchAPi=async()=>{
-      const res=await axios.get(`http://192.168.18.125:5000/api/halls?id=${cardId}`)
+      const res=await axios.get(`http://192.168.100.107:5000/api/halls?id=${cardId}`)
       console.log(res.data)
       setownername(res.data.email)
       sethallname(res.data.hallname)
@@ -36,7 +36,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
   }, [])
 
   const sendData=async()=>{
-    const response=axios.post('http://192.168.18.125:5000/api/user/logshalls',{
+    const response=axios.post('http://192.168.100.107:5000/api/user/logshalls',{
 
   hallname:hallname,
   halllocation:halllocation,
@@ -110,6 +110,24 @@ const WeddingHall = ({ hallDetails = {} }) => {
         <div className="text-wrapper-3" style={{ fontSize: '20px', textDecoration: 'underline' }}>Reviews</div>
       </button>
     </div>
+    <div className="wedding-hall" style={{ display: 'flex', flexDirection: 'column', maxWidth: '800px', margin: '120px auto' }}>
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Location</div>
+    <div className="text-wrapper-5">{venueData.halllocation}</div>
+  </div>
+  <Spacer x={5} />
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Owner Name</div>
+    <div className="text-wrapper-5">{venueData.ownername}</div>
+  </div>
+  <Spacer x={5} />
+  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
+    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Description</div>
+    <div className="text-wrapper-5">{venueData.description}</div>
+    <Spacer x={5} />
+
+  </div>
+</div>
 
     <Spacer y={8} />
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
@@ -136,28 +154,7 @@ const WeddingHall = ({ hallDetails = {} }) => {
     </div>
   </div>
 
-  <div className="wedding-hall" style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', margin: '120px auto' }}>
-  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
-    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Location</div>
-    <div className="text-wrapper-5">{venueData.halllocation}</div>
-  </div>
-  <Spacer x={5} />
-  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
-    <div className="heading-parking" style={{ fontSize: '16px' }}>Owner Name</div>
-    <div className="text-wrapper-5">{venueData.ownername}</div>
-  </div>
-  <Spacer x={5} />
-  <div className="container" style={{ marginBottom: '8px', flexDirection: 'column' }}>
-    <div className="heading-parking" style={{ fontSize: '16px' }}>Hall Description</div>
-    <div className="text-wrapper-5">{venueData.description}</div>
-    <Spacer x={5} />
-    <div>
-      <h2>{name}</h2>
-      <p>Capacity: {capacity}</p>
-      <p>Location: {location}</p>
-    </div>
-  </div>
-</div>
+
 
 
   <div style={{ width: '50%' }}>

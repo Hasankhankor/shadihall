@@ -67,7 +67,7 @@ function useRegister() {
         };
 
         // Replace 'YOUR_API_ENDPOINT' with the actual endpoint
-        const response = await axios.post('http://192.168.18.125:5000/api/user/halls', formData);
+        const response = await axios.post('http://192.168.100.107:5000/api/user/halls', formData);
 
         // Handle the response as needed
         console.log('API Response:', response.data);

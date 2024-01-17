@@ -23,7 +23,7 @@ const LogPage = () => {
 
   useEffect(() => {
    const fetchAPI=async()=>{
-    const res=await axios.get("http://192.168.18.125:5000/api/logshalls")
+    const res=await axios.get("http://192.168.100.107:5000/api/logshalls")
     console.log(res.data)
     setBookedData2(res.data)
 

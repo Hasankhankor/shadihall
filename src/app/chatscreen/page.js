@@ -2,6 +2,7 @@
 
 "use client"
 import React, { useState, useEffect } from 'react';
+import styles from './chatscreen.module.css';
 
 
 import io from 'socket.io-client';
@@ -12,9 +13,10 @@ import Navbar from "../../Components/navbarSection/navbar";
 // import { getAnalytics } from "firebase/analytics";
 import { MenuIcon } from "@heroicons/react/outline"
 import { Spacer } from "@nextui-org/spacer";
+import  axios  from 'axios';
 
 
-const socket = io("http://192.168.18.125:5000", { transports: ['websocket'] });
+const socket = io("http://192.168.100.107:5000", { transports: ['websocket'] });
 
 const adminUsername = 'Hasan';
 function App() {
@@ -23,48 +25,39 @@ function App() {
     const [chatInfo, setChatInfo] = useState({ adminPhoto: '', adminUsername: '' }); // Initialize chatInfo with default values
 
     useEffect(() => {
+      const handlePrivateMessage = ({ senderId, message }) => {
+        console.log("Received private message:", { senderId, text: message });
 
-      socket.on('message', (data) => {
-        console.log('Received message:', data);
-        setMessages((prevMessages) => [...prevMessages, data]);
-      });
+        // Assuming you have some user ID in your state to identify the sender
+        const isCurrentUser = senderId === socket.id;
 
-
-      socket.on('connect', () => {
-        console.log('Socket connected:', socket.connected);
-      });
-
-
-      return () => {
-        socket.disconnect();
+        // Update messages state using the functional update form
+        setMessages(prevMessages => [...prevMessages, { text: message, sender: isCurrentUser }]);
       };
-    }, []);
 
+      // Listen for private messages
+      socket.on('privateMessage', handlePrivateMessage);
 
+      // Clean up the socket listener on component unmount
+      return () => {
+        socket.off('privateMessage', handlePrivateMessage);
+      };
+    }, []); // Empty dependency array to run effect once on mount
 
-    // const firebaseConfig = {
-    //   apiKey: "AIzaSyBdCaQVxKURSJxhX3FjLI-eHRoSas-E6JE",
-    //   authDomain: "chat-message-2dfbe.firebaseapp.com",
-    //   projectId: "chat-message-2dfbe",
-    //   storageBucket: "chat-message-2dfbe.appspot.com",
-    //   messagingSenderId: "1008529597160",
-    //   appId: "1:1008529597160:web:5f2274371c6dd90bd71f5d",
-    //   measurementId: "G-HF0MY84LN7"
-    // };
-//     const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-const sendMessage = () => {
-  if (messageInput.trim() !== '') {
+    const sendMessage = () => {
+      const userid = localStorage.getItem("email2");
+      if (messageInput.trim() !== '') {
+        console.log('Sending message:', { userid, text: messageInput });
 
-    console.log('Socket connected:', socket.connected);
+        // Emit the private message
+        socket.emit('privateMessage', { recipientId: userid, message: messageInput });
 
+        // Update messages state for the sender
+        setMessages(prevMessages => [...prevMessages, { text: messageInput, sender: true }]);
 
-    console.log('Sending message:', { text: messageInput });
-    socket.emit('message', { text: messageInput });
+        setMessageInput('');
+      }
 
-
-    setMessageInput('');
-  }
 };
 
 
@@ -73,25 +66,25 @@ const sendMessage = () => {
      <div>
       <Navbar />
       <Spacer y={10} />
-      <div style={{ display: 'flex', maxWidth: '800px', margin: 'auto' }}>
+      <div className={styles.chatContainer}>
   <div style={{ width: '20%', borderRight: '1px solid #ccc', padding: '20px' }}>
     <h2 style={{ fontSize: '20px' }}>Users</h2>
     <ul style={{ listStyle: 'none', padding: 0 }}>
       <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', fontSize: '18px' }}>
         <a href="/user1-profile">
-          <img src="user1-avatar.jpg" alt="User 1" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="User 1" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
           User 1
         </a>
       </li>
       <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', fontSize: '18px' }}>
         <a href="/user2-profile">
-          <img src="user2-avatar.jpg" alt="User 2" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="User 2" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
           User 2
         </a>
       </li>
       <li style={{ marginBottom: '15px', display: 'flex', alignItems: 'center', fontSize: '18px' }}>
         <a href="/user3-profile">
-          <img src="user3-avatar.jpg" alt="User 3" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" alt="User 3" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '15px' }} />
           User 3
         </a>
       </li>
@@ -104,33 +97,82 @@ const sendMessage = () => {
 
         <div style={{ padding: '20px', borderBottom: '1px solid #ccc' }}>
 
-          <img src={"xX.png"} alt="User Photo" style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }} />
-          <h1>{chatInfo.adminUsername}</h1>
 
-          <div>
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                style={{
-                  marginBottom: '10px',
-                  padding: '10px',
-                  borderRadius: '10px',
-                  background: message.sender ? '#003B95' : '#ebecec', // Blue for user's sent messages, Grey for replies
-                  color: message.sender ? 'white' : 'black',
-                }}
-              >
+        <h1 style={{ color: 'navy', fontWeight: 'bold' }}>{chatInfo.adminUsername}</h1>
 
-                {/* {message.sender && (
-                  <>
-                    <img src={message.sender.photo} alt="User Photo" style={{ width: '30px', height: '30px', borderRadius: '50%', marginRight: '10px' }} />
-                    <span>{message.sender.username}:</span>
-                  </>
-                )} */}
-                <p>{message.text}</p>
-              </div>
-            ))}
-          </div>
+          <div style={{flexDirection:"row-reverse" }}>
+  {messages.map((message, index) => (
+    <div
+      key={index}
+      style={{
+        display: 'flex',
+        flexDirection: message.sender ?'row' : 'row',
+        alignItems: 'center',
+        marginBottom: '10px',
+        padding: '10px',
+        width : '30%',
+        borderRadius: '10px',
+
+        background: message.sender ? '#003B95' : '#ebecec',
+        color: message.sender ? 'white' : 'black',
+      }}
+    >
+      {message.sender && (
+        <img
+          src={"xX.png"}
+          alt="User Photo"
+          style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
+        />
+      )}
+      <p>{message.text}</p>
+      {!message.sender && (
+        <img
+          src={"xX.png"}
+          alt="User Photo"
+          style={{ width: '40px', height: '40px', borderRadius: '50%', marginLeft: '10px' }}
+        />
+      )}
+    </div>
+  ))}
+</div>
+
         </div>
+        {/* this below code is for Receiver */}
+        {/* <div>
+  {messages.map((message, index) => (
+    <div
+      key={index}
+      style={{
+        display: 'flex',
+        flexDirection: message.sender ? 'row-reverse' : 'row',
+        alignItems: 'center',
+        marginBottom: '10px',
+        borderRadius: '10px',
+        background: message.sender ? '#003B95' : '#ebecec', // Blue for user's sent messages, Grey for replies
+        color: message.sender ? 'white' : 'black',
+        padding: '10px',
+        maxWidth: '70%', // Limit the width of the message box
+      }}
+    >
+      {!message.sender && (
+        <img
+          src={"xX.png"}
+          alt="Receiver Photo"
+          style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
+        />
+      )}
+      <p style={{ margin: 0 }}>{message.text}</p>
+      {message.sender && (
+        <img
+          src={"xX.png"}
+          alt="User Photo"
+          style={{ width: '40px', height: '40px', borderRadius: '50%', marginLeft: '10px' }}
+        />
+      )}
+    </div>
+  ))}
+</div> */}
+
         <div style={{ padding: '20px', borderTop: '1px solid #ccc', margin: '0 auto', marginLeft: '90px' }}>
           <input
             type="text"

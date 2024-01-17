@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './Hero2SVG.module.css';
 import { useState } from "react";
 const HennaArtistsLink = () => {
 	const containerStyles = {
@@ -98,7 +99,7 @@ const HennaArtistsLink = () => {
 
 	return (
 		<>
-			<div style={containerStyles}>
+			<div className={styles.container}>
 				<a
 					href="/your-link-destination-1"
 					style={{ textDecoration: "none", color: "inherit" }}

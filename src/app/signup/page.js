@@ -50,7 +50,7 @@ const Signup = () => {
 
   const signupReq = async () => {
     try {
-      const res = await axios.post("http://192.168.18.125:5000/api/user/register", {
+      const res = await axios.post("http://192.168.100.107:5000/api/user/register", {
         email: email,
         password: password,
         fullname: fullname

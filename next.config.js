@@ -11,6 +11,9 @@ const nextConfig = {
 	  },
 	  fonts: true,
 	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	  }
   };
 
   module.exports = nextConfig;

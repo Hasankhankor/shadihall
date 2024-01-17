@@ -75,41 +75,44 @@ function Stay() {
       <br />
       <br />
 
-      <div style={{ position: 'relative' }}>
-        <Image
-          src="/Black & Yellow Modern Black Friday Sale Outdoor Banner.png"
-          alt="Black & Yellow Modern Black Friday Sale Outdoor Banner"
-          width={2500} // Set the desired width
-          height={875} // Set the desired height
-          layout="responsive" // Set layout to responsive
-          loading="lazy" // Enable lazy loading
-        />
-        <button
-          style={{
-            position: 'absolute',
-            bottom: '5%',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: 'white',
-            color: 'blue',
-            padding: '10px 32px',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-            boxShadow: '0 0 10px 3px rgba(0, 0, 255, 0.5)',
-            transition: 'box-shadow 0.2s ease-in-out',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.boxShadow = '0 0 50px 5px rgba(180, 180, 180)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.boxShadow = '0 0 10px 3px rgba(180, 180, 180)';
-          }}
-        >
-          Book Now
-        </button>
-      </div>
+      <div style={{ position: 'relative', maxWidth: '100%', overflow: 'hidden' }}>
+  <Image
+    src="/Black & Yellow Modern Black Friday Sale Outdoor Banner.png"
+    alt="Black & Yellow Modern Black Friday Sale Outdoor Banner"
+    width={2500}
+    height={875}
+    layout="responsive"
+    loading="lazy"
+    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+  />
+  <button
+    style={{
+      position: 'absolute',
+      bottom: '5%',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      background: 'white',
+      color: 'blue',
+      padding: '10px 32px',
+      border: 'none',
+      borderRadius: '5px',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      boxShadow: '0 0 10px 3px rgba(0, 0, 255, 0.5)',
+      transition: 'box-shadow 0.2s ease-in-out',
+    }}
+    onMouseEnter={(e) => {
+      e.target.style.boxShadow = '0 0 50px 5px rgba(180, 180, 180)';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.boxShadow = '0 0 10px 3px rgba(180, 180, 180)';
+    }}
+  >
+    Book Now
+  </button>
+</div>
+
+
 
       <Spacer y={20} />
 
@@ -142,33 +145,4 @@ function Stay() {
 
 export default Stay;
 
-//we can use this if we want to use data from deployed server
 
-// export const getStaticProps = async () => {
-//   const res1 = await fetch(
-//     "https://web-database-pravin.onrender.com/slideImages"
-//   );
-
-//   const dataSlideImage = await res1.json();
-
-//   const res2 = await fetch("https://web-database-pravin.onrender.com/slide");
-
-//   const dataSlide = await res2.json();
-
-//   const res3 = await fetch("https://web-database-pravin.onrender.com/travel");
-
-//   const dataTravel = await res3.json();
-
-//   const res4 = await fetch("https://web-database-pravin.onrender.com/stay");
-
-//   const dataStay = await res4.json();
-
-//   return {
-//     props: {
-//       slideImages: dataSlideImage,
-//       slide: dataSlide,
-//       travel: dataTravel,
-//       stay: dataStay,
-//     },
-//   };
-// };

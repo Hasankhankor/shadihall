@@ -21,7 +21,7 @@ const EditProfileForm = ({ email,name,picture, onSave }) => {
   useEffect(() => {
     const localemail=localStorage.getItem('email2')
     const fetchApi=async()=>{
-        const hallresponse= await axios.get(`http://192.168.18.125:5000/api/halls/${localemail}`)
+        const hallresponse= await axios.get(`http://192.168.100.107:5000/api/halls/${localemail}`)
       console.log(hallresponse.data)
       sethallname(hallresponse.data.hallname)
       setpassword(hallresponse.data.password)

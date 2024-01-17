@@ -57,7 +57,7 @@ import {
 	};
 	const signinReq = async () => {
 	  try {
-		const res = await axios.post("http://192.168.18.125:5000/api/user/login", {
+		const res = await axios.post("http://192.168.100.107:5000/api/user/login", {
 			email: email,
 			password: password,
 		});

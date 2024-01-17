@@ -31,7 +31,7 @@ const Topcard = () => {
 	useEffect(() => {
 		const fetchAPI = async () => {
 		  try {
-			const response = await axios.get("http://192.168.18.125:5000/api/user/halls");
+			const response = await axios.get("http://192.168.100.107:5000/api/user/halls");
 			console.log(response.data);
 			sethallData(response.data);
 		  } catch (error) {

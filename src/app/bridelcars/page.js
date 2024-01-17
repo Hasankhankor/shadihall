@@ -29,7 +29,7 @@ function carRental() {
 		<div>
 			<Navbar />
 			<SearchBox />
-
+			<h2 style={{ textAlign: "center", color: "blue" }}>Top Bridel Cars </h2>
 
 			<Flex justifyContent="center" alignItems="center">
 				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
@@ -169,6 +169,12 @@ function carRental() {
 					</CardFooter>
 				</Card>
 			</Flex>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 			<div style={{ position: "relative" }}>
 				<Image
 					src="/Modern Car Rental Promotion Banner.png"
@@ -204,19 +210,22 @@ function carRental() {
 			</div>
 
 			<br />
+			<br />
+			<h2 style={{ textAlign: "center", color: "blue" }}>Under budget Bridel Cars </h2>
+			<br />
 			<Flex justifyContent="center" alignItems="center">
-				<Card maxW="sm" mr="4">
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
-							src="https://image-tc.galaxy.tf/wijpeg-5h8z45mlagjtfm1n4jsszvcqe/whatsapp-image-2021-01-25-at-3.jpg?width=1600&height=1066"
+							src="https://miro.medium.com/v2/resize:fit:940/1*9VAnfAZ6o0s8O_A1nWvDsg.png"
 							alt="Green double couch with wooden legs"
 							borderRadius="lg"
 						/>
 						<Stack mt="6" spacing="3">
-							<Heading size="md">ISLAMABAD SERENA HOTEL WEDDING VENUE</Heading>
+							<Heading size="md">ISLAMABAD Car Rental </Heading>
 							<Text>
-								The 5-star Islamabad Serena Hotel is Islamabad’s most
-								sophisticated address for an unforgettable wedding celebration.
+								Going to the capital for the first time and want to see the city
+								from Margalla hills? safe and comfortable car rental service.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								PKR-45550
@@ -242,19 +251,22 @@ function carRental() {
 						</ButtonGroup>
 					</CardFooter>
 				</Card>
-				<Card maxW="sm" mr="4">
+
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
-							src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+							src="https://rentacarict.pk/wp-content/uploads/2023/03/Car-Rental-Banner-Cover-2-min.jpg"
 							alt="Green double couch with wooden legs"
 							borderRadius="lg"
 						/>
 						<Stack mt="6" spacing="3">
-							<Heading size="md">Living room Sofa</Heading>
+							<Heading size="md">Hamdan Rent Car</Heading>
 							<Text>
-								This sofa is perfect for modern tropical spaces, baroque
-								inspired spaces, earthy toned spaces and for people who love a
-								chic design with a sprinkle of vintage design.
+								We have all luxury vehicles like Civic Facelift, Vigo, Limo, Ac
+								Coaster, Wagoner Car, BRV Car, 500 more than Fleet service in
+								all over Pakistan. Hamdan car rental services in Islamabad
+								providing the best tour service in the Northern areas of
+								Pakistan.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								$450
@@ -273,19 +285,21 @@ function carRental() {
 						</ButtonGroup>
 					</CardFooter>
 				</Card>
-				<Card maxW="sm" mr="4">
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
-							src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+							src="https://www.omegarentalcars.com/assets/Uploads/range.jpg"
 							alt="Green double couch with wooden legs"
 							borderRadius="lg"
 						/>
 						<Stack mt="6" spacing="3">
-							<Heading size="md">Living room Sofa</Heading>
+							<Heading size="md">Micro Rent Car Islamabad</Heading>
 							<Text>
-								This sofa is perfect for modern tropical spaces, baroque
-								inspired spaces, earthy toned spaces and for people who love a
-								chic design with a sprinkle of vintage design.
+								A Best rent a cars services here. All kinds of vehicles are
+								available with low rent. At Luxury Rent a Car, we understand the
+								importance of convenience and flexibility in travel Our diverse
+								fleet of well-maintained and luxurious vehicles awaits to cater
+								to your every desire.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								$450
@@ -305,19 +319,19 @@ function carRental() {
 					</CardFooter>
 				</Card>
 
-				<Card maxW="sm" mr="4">
+				<Card maxW="sm" mr="4" sx={cardHoverStyle}>
 					<CardBody>
 						<Image
-							src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+							src="https://sherbrotherpakistan.com/wp-content/uploads/2023/02/intercity-car-service-1024x576.png"
 							alt="Green double couch with wooden legs"
 							borderRadius="lg"
 						/>
 						<Stack mt="6" spacing="3">
-							<Heading size="md">Living room Sofa</Heading>
+							<Heading size="md">Islamabad To Lahore </Heading>
 							<Text>
-								This sofa is perfect for modern tropical spaces, baroque
-								inspired spaces, earthy toned spaces and for people who love a
-								chic design with a sprinkle of vintage design.
+								Are you looking for a seamless and luxurious journey from Rent a
+								Car Islamabad to Lahore? Look no further than our prestigious
+								one-way drop service.
 							</Text>
 							<Text color="blue.600" fontSize="2xl">
 								$450

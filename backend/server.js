@@ -6,19 +6,20 @@ const cors = require('cors');
 const registerAPI = require('./api/user/register');
 const hallApi = require('./api/user/hallFieldsData');
 const halllogsApi = require('./api/user/halllogsfields');
+const chatApi = require('./api/user/chats');
 const bodyParser = require('body-parser');
 const User = require('./model/User');
 const hall =require('./model/hallmodel')
+const chats =require('./model/chatscreen')
 const logshall =require('./model/halllogsmodel')
 const bcrypt = require('bcryptjs');
 const Userupdated = require('./model/updateuser');
-
-
 const app = express();
 const server = http.createServer(app);
+
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://192.168.100.6:5000",
+    origin: "http://192.168.100.107:5000",
     methods: ["GET", "POST"]
   }
 });
@@ -28,7 +29,7 @@ const io = require("socket.io")(server, {
 const PORT = process.env.PORT || 5000;
 connectDB();
 const corsOptions = {
-  origin: `http:// 192.168.100.6:${PORT}`, // Replace with your client's origin
+  origin: `http:// 192.168.100.107:${PORT}`, // Replace with your client's origin
   methods: ['GET', 'POST'],
   credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   optionsSuccessStatus: 204,
@@ -39,10 +40,26 @@ app.use(bodyParser.json());
 app.use('/api/user', registerAPI);
 app.use('/api/user', hallApi);
 app.use('/api/user', halllogsApi);
+app.use('/api/user', chatApi);
 app.get('/api/user/halls',async (req,res)=>{
   try {
 
     const halls= await hall.find()
+    res.json(halls)
+
+
+
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+
+
+  }
+})
+app.get('/api/chats',async (req,res)=>{
+  try {
+
+    const halls= await chats.find()
     res.json(halls)
 
 
@@ -69,6 +86,7 @@ app.get('/api/logshalls',async (req,res)=>{
 
   }
 })
+
 app.post('/api/user/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -203,14 +221,21 @@ app.put("/api/user/halls",async (req, res) => {
 io.on('connection', (socket) => {
   console.log('User connected:', socket.id);
 
-   socket.on("chat message", (message) => {
-			io.emit("chat message", message); // Broadcast the message to all connected clients
-      console.log(message)
-		});
+  socket.on('message', (data) => {
+    // Broadcast the message to all connected clients
+    io.emit('message', data);
+    console.log(data)
+  });
+  socket.on('privateMessage', ({ recipientId, message }) => {
+    // Send the message to the specific recipient
+    io.to(recipientId).emit('privateMessage', { senderId: socket.id, message });
+    console.log({recipientId:recipientId, text:message})
+  });
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);
   });
 });
+
 
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
