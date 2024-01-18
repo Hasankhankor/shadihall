@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SearchIcon } from '@chakra-ui/icons';
 import "../../app/globals.css"
+import BallLights from '../BallLights';
 import {
   Box,
   Text,
@@ -56,6 +57,7 @@ const BgComponent = () => {
     // Implement your logic for increasing the room count
   }
 
+
   return (
     <Box
   w="100%"
@@ -74,6 +76,7 @@ const BgComponent = () => {
 
 </Box>
       <Spacer y={12} />
+
 
     </Box>
 
@@ -178,6 +181,9 @@ const BgComponent = () => {
         </a>
       </Link>
     </div>
+    <Spacer y={10} />
+    <Spacer y={10} />
+    <BallLights />
         </Box>
 
       </Box>

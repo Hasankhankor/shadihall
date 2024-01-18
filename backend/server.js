@@ -56,21 +56,19 @@ app.get('/api/user/halls',async (req,res)=>{
 
   }
 })
-app.get('/api/chats',async (req,res)=>{
+app.get('/api/user/chats/:receiver', async (req, res) => {
   try {
+    const {  receiver } = req.params;
+    console.log(receiver)
 
-    const halls= await chats.find()
-    res.json(halls)
-
-
-
+    // Assuming your chat schema has fields: sender, receiver, message, timestamp
+    const messages = await chats.findOne({receiver})
+    res.status(200).json(messages);
   } catch (error) {
-    console.error('Error fetching user data:', error);
-    res.status(500).json({ error: 'Internal server error' });
-
-
+    console.error('Error fetching chat messages:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-})
+});
 app.get('/api/logshalls',async (req,res)=>{
   try {
 
@@ -226,10 +224,20 @@ io.on('connection', (socket) => {
     io.emit('message', data);
     console.log(data)
   });
-  socket.on('privateMessage', ({ recipientId, message }) => {
-    // Send the message to the specific recipient
-    io.to(recipientId).emit('privateMessage', { senderId: socket.id, message });
-    console.log({recipientId:recipientId, text:message})
+  socket.on('privateMessage', async ({ recipientId, senderId, message }) => {
+    // Save to MongoDB
+    try {
+      const chatMessage = new chats({
+        sender: senderId,
+        receiver: recipientId,
+        message: message,
+        timestamp: new Date()
+      });
+      await chatMessage.save();
+      io.to(recipientId).emit('privateMessage', { senderId, message });
+    } catch (error) {
+      console.error('Error saving chat message:', error);
+    }
   });
   socket.on('disconnect', () => {
     console.log('User disconnected:', socket.id);

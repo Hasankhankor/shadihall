@@ -65,16 +65,8 @@ const SearchBox = () => {
 				height="20vh" // Adjust the height as needed
 				width="100%" // Adjust the width as needed
 			>
-				<Box
-					width="200px" // Adjust the width as needed
-					height="220px" // Adjust the height as needed
-				>
-					<img
-						src="/sale.png"
-						alt="Sale Image"
-						style={{ width: "100%", height: "100%", objectFit: "cover" }}
-					/>
-				</Box>
+
+
 			</Box>
 		</>
 	);

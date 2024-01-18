@@ -15,45 +15,22 @@ router.use(express.json());
 router.post('/chats', async (req, res) => {
   try {
     await client.connect();
+    const { senderId, receiverId, message } = req.body;
 
-    const { userid,data} = req.body;
-    console.log('Received request with data:', {userid,data});
-    // Check if user already exists
-
-
-    // Hash the password
-
-
-
-    const newUser = new UserModel({
-     userid:userid,
-     data:data
-
+    const chatMessage = new ChatModel({
+      sender: senderId,
+      receiver: receiverId,
+      message: message,
+      timestamp: new Date()
     });
 
-    // Save the new user
-  // Save the new user
-
-
-
-    // Insert the new user into the 'User' collection
-    const collection = client.db().collection('chats');
-    const result = await collection.insertOne({
-        userid:userid,
-        data:data
-
-
-
-    });
-
-    res.status(201).json({ message: 'User registered successfully', user: result});
+    await chatMessage.save();
+    res.status(201).json({ message: 'Message saved successfully', chatMessage });
   } catch (error) {
-    console.error('Error during user registration:', error);
+    console.error('Error saving chat message:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   } finally {
-    if (client) {
-      await client.close();
-    }
+    await client.close();
   }
 });
 

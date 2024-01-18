@@ -5,6 +5,8 @@ import jwt from "jsonwebtoken";
 import { BsFillBalloonHeartFill } from "react-icons/bs";
 import { CiUser } from "react-icons/ci";
 import { FaRocketchat } from "react-icons/fa6";
+import { Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, IconButton } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 
 import {
 	IoAirplaneOutline,
@@ -31,11 +33,14 @@ import { useRouter } from "next/navigation";
 import destination from "../../app/destination";
 import {Spacer} from "@nextui-org/spacer";
 import { HiLogin } from "react-icons/hi";
-
+import { VStack } from "@chakra-ui/react";
 let TSEC = "hello";
 
 
 export default function Navbar() {
+	const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+const openDrawer = () => setIsDrawerOpen(true);
+const closeDrawer = () => setIsDrawerOpen(false);
 	const [emailValids, setemailValid] = useState(false);
 
 	const router = useRouter();
@@ -60,6 +65,7 @@ export default function Navbar() {
 	return (
 		<>
 			{/* <Box className={styles.dNav} ><DraverNav/></Box> */}
+ {/* Button to open drawer */}
 
 			<Box
 				// border="1px solid black"
@@ -84,16 +90,49 @@ export default function Navbar() {
 								className={styles.logosize}
 							>
 								<text
-									style={{
-										color: "white",
-										fontWeight: "bold",
-										fontSize: "36px",
-										transition: "box-shadow 0.2s ease-in-out", // Added transition property
+    style={{
+        color: "white",
+        fontWeight: "bold",
+        fontSize: "36px",
 
-									}}
-								>
-									Shadihall.com
-								</text>
+    }}
+>
+    Shadihall.com
+</text>
+
+<iv style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+<Box display={{ base: "block", md: "none" }} zIndex="overlay">
+            <IconButton
+                icon={<HamburgerIcon />}
+                onClick={openDrawer}
+                variant="outline"
+                aria-label="Open menu"
+				color="white"
+            />
+        </Box>
+
+        {/* Drawer component */}
+        <Drawer isOpen={isDrawerOpen} placement="left" onClose={closeDrawer}>
+            <DrawerOverlay />
+            <DrawerContent>
+                <DrawerHeader borderBottomWidth="1px">Navigation</DrawerHeader>
+                <DrawerBody>
+                    <VStack>
+                        {/* Add navigation links here */}
+                        <Link href="/">Home</Link>
+                        <Link href="/Weddinglisthall">Wedding Halls</Link>
+                        <Link href="/bridelcars">Bridal Cars</Link>
+                        <Link href="/destinations">Destination</Link>
+						<Link href="/signin">Sign in</Link>
+              <Link href="/signup">Register</Link>
+              <Link href="/list-your-halls">List your Halls</Link>
+                        {/* Add other links as needed */}
+                    </VStack>
+                </DrawerBody>
+            </DrawerContent>
+        </Drawer>
+</iv>
+
 								{/* <img
                   src={"/" + "applogo.png"}
                   // border="2px solid red"

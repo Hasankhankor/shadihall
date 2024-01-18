@@ -3,14 +3,15 @@
 import React, { useEffect, useState } from 'react';
 // import Navbar from "../../../Components/navbarSection/navbar";
 import {Spacer} from "@nextui-org/spacer";
-import { Flex,Button } from '@chakra-ui/react';
+import { Flex,Button,Avatar } from '@chakra-ui/react';
 import styles from "./WeddingHall.module.css";
 import  axios  from 'axios';
 import { useRouter } from 'next/navigation';
 import {  Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@chakra-ui/react";
 import Navbarr from "@/Components/navbarSection/navbar";
 import DownCard from "@/Components/downcard";
-
+import Link from "next/link";
+import { HiLogin } from "react-icons/hi";
 const WeddingHall = ({ hallDetails = {} }) => {
   const router=useRouter();
   const [ownername, setownername] = useState("")
@@ -45,6 +46,9 @@ const WeddingHall = ({ hallDetails = {} }) => {
     })
     console.log(response)
 
+  }
+  const sendchatid=()=>{
+    localStorage.setItem("SenderId",ownername)
   }
 
   const { name = 'Unknown Hall', capacity = 'N/A', location = 'N/A', imageSrc = '' } = hallDetails;
@@ -183,6 +187,12 @@ const WeddingHall = ({ hallDetails = {} }) => {
       >
         Book Now
       </Button>
+      <Link href="/chatscreen">
+        <Button onClick={sendchatid}>
+        <Avatar alt="Remy Sharp" src="https://cdn-icons-png.flaticon.com/512/5962/5962463.png" />
+        </Button>
+
+</Link>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

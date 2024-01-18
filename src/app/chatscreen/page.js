@@ -21,10 +21,20 @@ const socket = io("http://192.168.100.107:5000", { transports: ['websocket'] });
 const adminUsername = 'Hasan';
 function App() {
   const [messages, setMessages] = useState([]);
+  const [messages2, setMessages2] = useState([]);
   const [messageInput, setMessageInput] = useState('');
     const [chatInfo, setChatInfo] = useState({ adminPhoto: '', adminUsername: '' }); // Initialize chatInfo with default values
 
     useEffect(() => {
+      const userid=localStorage.getItem("email2")
+      const fetchChats=async()=>{
+        const res=await axios.get(`http://192.168.100.107:5000/api/user/chats/${userid}`)
+        console.log(res.data)
+        setMessages2(res.data)
+
+      }
+      fetchChats()
+
       const handlePrivateMessage = ({ senderId, message }) => {
         console.log("Received private message:", { senderId, text: message });
 
@@ -45,12 +55,13 @@ function App() {
     }, []); // Empty dependency array to run effect once on mount
 
     const sendMessage = () => {
-      const userid = localStorage.getItem("email2");
+      const SenderID = localStorage.getItem("email2");
+      const ReciverID=localStorage.getItem("SenderId")
       if (messageInput.trim() !== '') {
-        console.log('Sending message:', { userid, text: messageInput });
+        console.log('Sending message:', { ReciverID,SenderID, text: messageInput });
 
         // Emit the private message
-        socket.emit('privateMessage', { recipientId: userid, message: messageInput });
+        socket.emit('privateMessage', { recipientId: ReciverID,senderId:SenderID, message: messageInput });
 
         // Update messages state for the sender
         setMessages(prevMessages => [...prevMessages, { text: messageInput, sender: true }]);
@@ -139,7 +150,7 @@ function App() {
         </div>
         {/* this below code is for Receiver */}
         {/* <div>
-  {messages.map((message, index) => (
+  {messages2.map((message, index) => (
     <div
       key={index}
       style={{
@@ -154,21 +165,21 @@ function App() {
         maxWidth: '70%', // Limit the width of the message box
       }}
     >
-      {!message.sender && (
+
         <img
           src={"xX.png"}
           alt="Receiver Photo"
           style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
         />
-      )}
-      <p style={{ margin: 0 }}>{message.text}</p>
-      {message.sender && (
+
+      <p style={{ margin: 0 }}>{message.message}</p>
+
         <img
           src={"xX.png"}
           alt="User Photo"
           style={{ width: '40px', height: '40px', borderRadius: '50%', marginLeft: '10px' }}
         />
-      )}
+
     </div>
   ))}
 </div> */}

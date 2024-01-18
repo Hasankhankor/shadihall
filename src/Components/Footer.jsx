@@ -1,6 +1,8 @@
 import React from "react";
 import { Box, Button, Grid, Image, Input, Text } from "@chakra-ui/react";
 
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 const Footer = () => {
 	return (
 		<Box pb="2rem" mt={4}>
@@ -80,59 +82,7 @@ const Footer = () => {
 					</Grid>
 				</Box>
 			</Box>
-			{/* ******************footer Section 2 end******************* */}
-			{/* <Box color="#0071c2" w='80%' m="auto" mt="15px" mb="15px">
-<Grid fontSize="14px" templateColumns={{sm:"repeat(1, 1fr)",md:"repeat(3, 1fr)", lg: "repeat(5, 1fr)" }} gap={6}>
-<Box cursor="pointer" >
-  <Text>Countries</Text>
-  <Text>Regions</Text>
-  <Text>Cities</Text>
-  <Text>Districts</Text>
-  <Text>Airports</Text>
-  <Text>Hotels</Text>
-  <Text>Places of interest</Text>
-</Box>
-<Box cursor="pointer">
-  <Text>Homes</Text>
-  <Text>Apartments</Text>
-  <Text>Resorts</Text>
-  <Text>Villas</Text>
-  <Text>Hotels</Text>
-  <Text>B&Bs</Text>
-  <Text>Guest houses</Text>
-</Box>
-<Box cursor="pointer">
-<Text>Unique places to stay</Text>
-  <Text>All destinations</Text>
-  <Text>Discover</Text>
-  <Text>Reviews</Text>
-  <Text>Unpacked: Travel articles</Text>
-  <Text>ravel Communities</Text>
-  <Text>Seasonal and holiday deals</Text>
-</Box>
-<Box cursor="pointer">
-<Text>Car hire</Text>
-  <Text>Flight finder</Text>
-  <Text>Restaurant reservations</Text>
-</Box>
-<Box cursor="pointer">
-<Text>Coronavirus (COVID-19) FAQs</Text>
-  <Text>About Booking.com</Text>
-  <Text>Customer Service help</Text>
-  <Text>Partner help</Text>
-  <Text>Careers</Text>
-  <Text>Sustainability</Text>
-  <Text>Safety resource centre</Text>
-  <Text>Investor relations</Text>
-  <Text>Terms & Conditions</Text>
-  <Text>Partner dispute</Text>
-  <Text>How we work</Text>
-</Box>
-</Grid>
-  </Box> */}
-			{/* ******************footer Section 3 end******************* */}
 
-			{/* ******************footer Section 5 end******************* */}
 		</Box>
 	);
 };

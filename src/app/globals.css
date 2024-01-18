@@ -39,6 +39,63 @@ body {
   height: 100%;
 }
 
+/* BallLights.css */
+
+/* BallLights.css */
+
+.ball-lights-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.light-ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffe0;
+  margin: 5px;
+  box-shadow: 0 0 8px rgba(255, 255, 224, 0.8);
+  animation: blink 1s step-start infinite alternate, glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 8px rgba(255, 255, 224, 0.8);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 224, 1);
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .light-ball {
+    width: 15px; /* Smaller size for smaller screens */
+    height: 15px;
+    margin: 3px;
+  }
+}
+
+@media (max-width: 400px) {
+  .light-ball {
+    width: 10px; /* Even smaller size for very small screens */
+    height: 10px;
+    margin: 2px;
+  }
+}
+
+
+
 .div-home {
   align-items: center;
   background-color: #f9f9f9;
